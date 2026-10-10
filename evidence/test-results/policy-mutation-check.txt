@@ -1,0 +1,7 @@
+# 2026-10-10T14:34:24Z policy-test mutation check
+caught: publish allowed on any event
+caught: action pinned to a mutable tag
+caught: checkout persists credentials
+caught: workflow-wide write token
+caught: packages:write granted to build job
+.........                                                                [100%]

@@ -1,0 +1,11 @@
+# 2026-10-10T14:04:04Z docker 29.8.1
+[smoke] starting pulse-api:1.0.0 as smoke-1793-8393
+[smoke] healthy; probing http://127.0.0.1:32768
+[smoke] GET /health -> 200
+[smoke] GET /ready -> 200
+[smoke] GET /api/v1/primes/10 -> 200
+[smoke] GET /api/v1/primes/-1 -> 422
+[smoke] metrics exposed
+[smoke] running as uid 10001 (non-root)
+[smoke] PASS
+exit=0

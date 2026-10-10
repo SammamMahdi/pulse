@@ -1,0 +1,6 @@
+# 2026-10-10T14:33:43Z trufflehog 3.97.9 (docker) git scan, results=verified,unknown
+
+2026-10-10T14:34:24Z	info-0	trufflehog	running source	{"source_manager_worker_id": "72nPN", "with_units": true}
+2026-10-10T14:34:24Z	info-0	trufflehog	scanning repo	{"source_manager_worker_id": "72nPN", "unit_kind": "dir", "unit": "/tmp/trufflehog-25-1100795809", "repo": "file:///repo"}
+2026-10-10T14:34:24Z	info-0	trufflehog	finished scanning	{"chunks": 24, "bytes": 46168, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "195.893959ms", "trufflehog_version": "3.97.9", "verification_caching": {"Hits":0,"Misses":0,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":0}}
+exit=0

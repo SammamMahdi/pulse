@@ -1,0 +1,38 @@
+# 2026-10-10T14:35:08Z docker 29.8.1 compose 5.5.1
+--- deploying pulse-api:1.0.0
+ Network container-cicd-lab_default Creating 
+ Network container-cicd-lab_default Creating 
+ Network container-cicd-lab_default Created 
+ Network container-cicd-lab_default Created 
+ Container container-cicd-lab-api-1 Creating 
+ Container container-cicd-lab-api-1 Created 
+ Container container-cicd-lab-api-1 Starting 
+ Container container-cicd-lab-api-1 Started 
+ Container container-cicd-lab-api-1 Waiting 
+ Container container-cicd-lab-api-1 Healthy 
+SERVICE   IMAGE             STATUS
+api       pulse-api:1.0.0   Up 11 seconds (healthy)
+running version: 1.0.0
+--- deploying pulse-api:1.1.0
+ Container container-cicd-lab-api-1 Recreate 
+ Container container-cicd-lab-api-1 Recreated 
+ Container container-cicd-lab-api-1 Starting 
+ Container container-cicd-lab-api-1 Started 
+ Container container-cicd-lab-api-1 Waiting 
+ Container container-cicd-lab-api-1 Healthy 
+SERVICE   IMAGE             STATUS
+api       pulse-api:1.1.0   Up 10 seconds (healthy)
+running version: 1.1.0
+--- simulated bad release detected; rolling back to 1.0.0
+--- deploying pulse-api:1.0.0
+ Container container-cicd-lab-api-1 Recreate 
+ Container container-cicd-lab-api-1 Recreated 
+ Container container-cicd-lab-api-1 Starting 
+ Container container-cicd-lab-api-1 Started 
+ Container container-cicd-lab-api-1 Waiting 
+ Container container-cicd-lab-api-1 Healthy 
+SERVICE   IMAGE             STATUS
+api       pulse-api:1.0.0   Up 14 seconds (healthy)
+running version: 1.0.0
+readiness after rollback: OK
+exit=0

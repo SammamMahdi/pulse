@@ -1,0 +1,4 @@
+# 2026-10-10T14:04:13Z Version: 0.74.0
+│                                      Target                                      │    Type    │ Vulnerabilities │
+│ pulse-api:1.0.0 (debian 13.7)                                                    │   debian   │        0        │
+exit=0

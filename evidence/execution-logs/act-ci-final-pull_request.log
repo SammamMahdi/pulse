@@ -1,0 +1,1338 @@
+# act act version 0.2.89 | event=pull_request | 2026-10-10T14:37:46Z | local run on WSL Docker, not GitHub-hosted
+time="2026-10-10T20:37:46+06:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+time="2026-10-10T20:37:46+06:00" level=info msg="Start server on http://172.26.215.179:34567"
+[CI/Lint and unit tests     ] ⭐ Run Set up job
+[CI/Secret scan (TruffleHog)] ⭐ Run Set up job
+[CI/Secret scan (TruffleHog)] 🚀  Start image=catthehacker/ubuntu:act-24.04
+[CI/Lint and unit tests     ] 🚀  Start image=catthehacker/ubuntu:act-24.04
+[CI/Secret scan (TruffleHog)]   🐳  docker pull image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 username= forcePull=true
+[CI/Lint and unit tests     ]   🐳  docker pull image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 username= forcePull=true
+[CI/Lint and unit tests     ]   🐳  docker create image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Secret scan (TruffleHog)]   🐳  docker create image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Lint and unit tests     ]   🐳  docker run image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Secret scan (TruffleHog)]   🐳  docker run image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[CI/Secret scan (TruffleHog)]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[CI/Lint and unit tests     ]   ✅  Success - Set up job
+[CI/Secret scan (TruffleHog)]   ✅  Success - Set up job
+[CI/Secret scan (TruffleHog)]   ☁  git clone 'https://github.com/trufflesecurity/trufflehog' # ref=4dd8831c5f12599465d4d45c3c447b4018a34c85
+[CI/Lint and unit tests     ]   ☁  git clone 'https://github.com/actions/setup-python' # ref=5fda3b95a4ea91299a34e894583c3862153e4b97
+[CI/Secret scan (TruffleHog)] ⭐ Run Pre Fail on verified or unverifiable credentials
+[CI/Secret scan (TruffleHog)]   ✅  Success - Pre Fail on verified or unverifiable credentials [30.206764ms]
+[CI/Secret scan (TruffleHog)] ⭐ Run Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+[CI/Secret scan (TruffleHog)]   🐳  docker cp src=/root/selise-work/act-container-cicd-lab/. dst=/root/selise-work/act-container-cicd-lab
+[CI/Secret scan (TruffleHog)]   ✅  Success - Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 [60.755539ms]
+[CI/Secret scan (TruffleHog)] ⭐ Run Main Fail on verified or unverifiable credentials
+[CI/Secret scan (TruffleHog)]   🐳  docker cp src=/root/.cache/act/trufflesecurity-trufflehog@4dd8831c5f12599465d4d45c3c447b4018a34c85/ dst=/var/run/act/actions/trufflesecurity-trufflehog@4dd8831c5f12599465d4d45c3c447b4018a34c85/
+[CI/Lint and unit tests     ]   ☁  git clone 'https://github.com/hadolint/hadolint-action' # ref=06be81baf89a55ffd0e24b8f04a4185738dd3387
+[CI/Lint and unit tests     ] ⭐ Run Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+[CI/Lint and unit tests     ]   🐳  docker cp src=/root/selise-work/act-container-cicd-lab/. dst=/root/selise-work/act-container-cicd-lab
+[CI/Lint and unit tests     ]   ✅  Success - Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 [59.332975ms]
+[CI/Lint and unit tests     ] ⭐ Run Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+[CI/Lint and unit tests     ]   🐳  docker cp src=/root/.cache/act/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/ dst=/var/run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/dist/setup/index.js] user= workdir=
+[CI/Lint and unit tests     ]   ❓  ::group::Installed versions
+[CI/Lint and unit tests     ]   | Successfully set up CPython (3.12.15)
+[CI/Lint and unit tests     ]   ❓  ::endgroup::
+[CI/Lint and unit tests     ]   | [command]/opt/hostedtoolcache/Python/3.12.15/x64/bin/pip cache dir
+[CI/Lint and unit tests     ]   | /root/.cache/pip
+[CI/Lint and unit tests     ]   ⚙  ***
+[CI/Lint and unit tests     ]   | Cache Size: ~5 MB (5053060 B)
+[CI/Lint and unit tests     ]   | [command]/usr/bin/tar -xf /tmp/d74ce6a3-842a-4ab9-971c-cd24f272fab3/cache.tzst -P -C /root/selise-work/act-container-cicd-lab --use-compress-program unzstd
+[CI/Lint and unit tests     ]   | Cache restored successfully
+[CI/Lint and unit tests     ]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.12.15-pip-0dd53aea395ff8540048e68650692d5c31cfffd38cded451904adc519c57b9e8
+[CI/Lint and unit tests     ]   ❓ add-matcher /run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/.github/python.json
+[CI/Lint and unit tests     ]   ✅  Success - Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 [7.786911539s]
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: Python2_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: Python3_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: LD_LIBRARY_PATH=/opt/hostedtoolcache/Python/3.12.15/x64/lib
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: pythonLocation=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: PKG_CONFIG_PATH=/opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+[CI/Lint and unit tests     ]   ⚙  ::set-output:: python-path=/opt/hostedtoolcache/Python/3.12.15/x64/bin/python
+[CI/Lint and unit tests     ]   ⚙  ::set-output:: cache-hit=false
+[CI/Lint and unit tests     ]   ⚙  ::set-output:: python-version=3.12.15
+[CI/Lint and unit tests     ]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests     ]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.15/x64/bin
+[CI/Lint and unit tests     ] ⭐ Run Main Install pinned dependencies
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[CI/Lint and unit tests     ]   | Requirement already satisfied: annotated-doc==0.0.5 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 2)) (0.0.5)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: annotated-types==0.8.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 3)) (0.8.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: anyio==4.15.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 4)) (4.15.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: click==8.5.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 5)) (8.5.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: fastapi==0.143.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 6)) (0.143.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: h11==0.16.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 7)) (0.16.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: idna==3.20 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 8)) (3.20)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: opentelemetry-api==1.45.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 9)) (1.45.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: prometheus_client==0.26.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 10)) (0.26.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pydantic==2.14.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 11)) (2.14.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pydantic_core==2.50.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 12)) (2.50.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: starlette==1.7.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 13)) (1.7.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: typing-inspection==0.4.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 14)) (0.4.4)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: typing_extensions==4.16.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 15)) (4.16.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: uvicorn==0.54.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 16)) (0.54.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: boolean.py==5.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 3)) (5.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: CacheControl==0.14.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 4)) (0.14.4)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: certifi==2026.7.22 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 5)) (2026.7.22)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: charset-normalizer==3.5.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 6)) (3.5.2)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: coverage==7.16.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 7)) (7.16.2)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: cyclonedx-python-lib==11.12.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 8)) (11.12.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: defusedxml==0.7.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 9)) (0.7.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: filelock==4.1.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 10)) (4.1.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: httpcore2==2.13.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 11)) (2.13.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: httpx2==2.13.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 12)) (2.13.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: iniconfig==2.3.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 13)) (2.3.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: license-expression==30.4.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 14)) (30.4.4)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: markdown-it-py==4.2.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 15)) (4.2.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: mdurl==0.1.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 16)) (0.1.2)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: msgpack==1.2.3 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 17)) (1.2.3)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: packageurl-python==0.17.6 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 18)) (0.17.6)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: packaging==26.3 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 19)) (26.3)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pip-requirements-parser==32.0.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 20)) (32.0.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pip_api==0.0.35 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 21)) (0.0.35)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pip_audit==2.10.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 22)) (2.10.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: platformdirs==4.12.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 23)) (4.12.4)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pluggy==1.6.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 24)) (1.6.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: py-serializable==2.1.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 25)) (2.1.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: Pygments==2.21.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 26)) (2.21.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pyparsing==3.3.3 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 27)) (3.3.3)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pytest==9.1.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 28)) (9.1.1)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pytest-cov==7.1.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 29)) (7.1.0)
+[CI/Lint and unit tests     ]   | Collecting PyYAML==6.0.3 (from -r requirements-dev.txt (line 30))
+[CI/Lint and unit tests     ]   |   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: requests==2.34.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 31)) (2.34.2)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: rich==15.0.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 32)) (15.0.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: ruff==0.17.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 33)) (0.17.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: sortedcontainers==2.4.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 34)) (2.4.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: tomli==2.5.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 35)) (2.5.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: tomli_w==1.2.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 36)) (1.2.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: truststore==0.10.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 37)) (0.10.4)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: urllib3==2.8.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 38)) (2.8.0)
+[CI/Lint and unit tests     ]   | Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from pip_api==0.0.35->-r requirements-dev.txt (line 21)) (26.2.1)
+[CI/Lint and unit tests     ]   | Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+[CI/Lint and unit tests     ]   |    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 2.6 MB/s  0:00:00
+[CI/Lint and unit tests     ]   | Installing collected packages: PyYAML
+[CI/Lint and unit tests     ]   | Successfully installed PyYAML-6.0.3
+[CI/Lint and unit tests     ]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[CI/Lint and unit tests     ]   ✅  Success - Main Install pinned dependencies [5.83748838s]
+[CI/Lint and unit tests     ] ⭐ Run Main Ruff lint
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[CI/Lint and unit tests     ]   ✅  Success - Main Ruff lint [608.77382ms]
+[CI/Lint and unit tests     ] ⭐ Run Main Ruff format check
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[CI/Lint and unit tests     ]   | 16 files already formatted
+[CI/Lint and unit tests     ]   ✅  Success - Main Ruff format check [473.766904ms]
+[CI/Lint and unit tests     ] ⭐ Run Main Unit tests with coverage gate (90%)
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/5] user= workdir=
+[CI/Secret scan (TruffleHog)] ⭐ Run Main ##########################################
+## ADVANCED USAGE                       ##
+## Scan by BASE & HEAD user inputs      ##
+## If BASE == HEAD, exit with error     ##
+##########################################
+# Check if jq is installed, if not, install it
+if ! command -v jq &> /dev/null
+then
+  echo "jq could not be found, installing..."
+  apt-get -y update && apt-get install -y jq
+fi
+
+git status >/dev/null  # make sure we are in a git repository
+if [ -n "$BASE" ] || [ -n "$HEAD" ]; then
+  if [ -n "$BASE" ]; then
+    base_commit=$(git rev-parse "$BASE" 2>/dev/null) || true
+  else
+    base_commit=""
+  fi
+  if [ -n "$HEAD" ]; then
+    head_commit=$(git rev-parse "$HEAD" 2>/dev/null) || true
+  else
+    head_commit=""
+  fi
+  if [ "$base_commit" == "$head_commit" ] ; then
+    echo "::error::BASE and HEAD commits are the same. TruffleHog won't scan anything. Please see documentation (https://github.com/trufflesecurity/trufflehog#octocat-trufflehog-github-action)."
+    exit 1
+  fi
+##########################################
+## Scan commits based on event type     ##
+##########################################
+else
+  if [ "pull_request" == "push" ]; then
+    COMMIT_LENGTH=$(printenv COMMIT_IDS | jq length)
+    if [ $COMMIT_LENGTH == "0" ]; then
+      echo "No commits to scan"
+      exit 0
+    fi
+    HEAD=
+    if [  == "0000000000000000000000000000000000000000" ]; then
+      BASE=""
+    else
+      BASE=
+    fi
+  elif [ "pull_request" == "workflow_dispatch" ] || [ "pull_request" == "schedule" ]; then
+    BASE=""
+    HEAD=""
+  elif [ "pull_request" == "pull_request" ]; then
+    BASE=
+    HEAD=
+  fi
+fi
+##########################################
+##          Run TruffleHog              ##
+##########################################
+docker run --rm -v .:/tmp -w /tmp \
+"${IMAGE}:${VERSION}" \
+git file:///tmp/ \
+--since-commit \
+${BASE:-''} \
+--branch \
+${HEAD:-''} \
+--fail \
+--no-update \
+--github-actions \
+${ARGS:-''}
+[CI/Secret scan (TruffleHog)]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-0.sh] user= workdir=./
+[CI/Secret scan (TruffleHog)]   | Unable to find image 'ghcr.io/trufflesecurity/trufflehog:latest' locally
+[CI/Secret scan (TruffleHog)]   | latest: Pulling from trufflesecurity/trufflehog
+[CI/Secret scan (TruffleHog)]   | 4f4fb700ef54: Pulling fs layer
+[CI/Secret scan (TruffleHog)]   | 4f4fb700ef54: Pulling fs layer
+[CI/Secret scan (TruffleHog)]   | fb89762ee175: Pulling fs layer
+[CI/Secret scan (TruffleHog)]   | feea5b49d106: Pulling fs layer
+[CI/Secret scan (TruffleHog)]   | cd27198bc4c5: Pulling fs layer
+[CI/Secret scan (TruffleHog)]   | 4f4fb700ef54: Already exists
+[CI/Secret scan (TruffleHog)]   | 4f4fb700ef54: Pull complete
+[CI/Secret scan (TruffleHog)]   | cd27198bc4c5: Download complete
+[CI/Secret scan (TruffleHog)]   | fb89762ee175: Download complete
+[CI/Secret scan (TruffleHog)]   | fb89762ee175: Pull complete
+[CI/Lint and unit tests     ]   | ..............................................                           [100%]
+[CI/Lint and unit tests     ]   | ================================ tests coverage ================================
+[CI/Lint and unit tests     ]   | _______________ coverage: platform linux, python 3.12.15-final-0 _______________
+[CI/Lint and unit tests     ]   | 
+[CI/Lint and unit tests     ]   | Name                   Stmts   Miss Branch BrPart  Cover   Missing
+[CI/Lint and unit tests     ]   | ------------------------------------------------------------------
+[CI/Lint and unit tests     ]   | app/__init__.py            0      0      0      0   100%
+[CI/Lint and unit tests     ]   | app/config.py             52      1     16      1    97%   31
+[CI/Lint and unit tests     ]   | app/faults.py             50      0      6      0   100%
+[CI/Lint and unit tests     ]   | app/main.py              102      3     16      0    97%   109-111
+[CI/Lint and unit tests     ]   | app/observability.py      37      1      4      1    95%   71
+[CI/Lint and unit tests     ]   | ------------------------------------------------------------------
+[CI/Lint and unit tests     ]   | TOTAL                    241      5     42      2    98%
+[CI/Lint and unit tests     ]   | Required test coverage of 90.0% reached. Total coverage: 97.53%
+[CI/Lint and unit tests     ]   | 46 passed in 4.29s
+[CI/Lint and unit tests     ]   ✅  Success - Main Unit tests with coverage gate (90%) [11.458512863s]
+[CI/Lint and unit tests     ] ⭐ Run Main Dependency vulnerability audit
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/6] user= workdir=
+[CI/Secret scan (TruffleHog)]   | feea5b49d106: Download complete
+[CI/Secret scan (TruffleHog)]   | feea5b49d106: Pull complete
+[CI/Secret scan (TruffleHog)]   | cd27198bc4c5: Pull complete
+[CI/Secret scan (TruffleHog)]   | Digest: sha256:47a84bc18a0d04a165498bbbd3bacfd84176661cbc91f8e0f85467f6a771e99a
+[CI/Secret scan (TruffleHog)]   | Status: Downloaded newer image for ghcr.io/trufflesecurity/trufflehog:latest
+[CI/Secret scan (TruffleHog)]   | 🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
+[CI/Secret scan (TruffleHog)]   | 
+[CI/Secret scan (TruffleHog)]   | 2026-10-10T14:40:57Z	info-0	trufflehog	running source	{"source_manager_worker_id": "HCTV1", "with_units": true}
+[CI/Secret scan (TruffleHog)]   | 2026-10-10T14:40:57Z	info-0	trufflehog	scanning repo	{"source_manager_worker_id": "HCTV1", "unit_kind": "dir", "unit": "/tmp/trufflehog-25-4112567149", "repo": "file:///tmp"}
+[CI/Secret scan (TruffleHog)]   | 2026-10-10T14:40:57Z	info-0	trufflehog	finished scanning	{"chunks": 31, "bytes": 67939, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "248.205692ms", "trufflehog_version": "3.99.2", "verification_caching": {"Hits":0,"Misses":0,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":0}}
+[CI/Secret scan (TruffleHog)]   ✅  Success - Main ##########################################
+## ADVANCED USAGE                       ##
+## Scan by BASE & HEAD user inputs      ##
+## If BASE == HEAD, exit with error     ##
+##########################################
+# Check if jq is installed, if not, install it
+if ! command -v jq &> /dev/null
+then
+  echo "jq could not be found, installing..."
+  apt-get -y update && apt-get install -y jq
+fi
+
+git status >/dev/null  # make sure we are in a git repository
+if [ -n "$BASE" ] || [ -n "$HEAD" ]; then
+  if [ -n "$BASE" ]; then
+    base_commit=$(git rev-parse "$BASE" 2>/dev/null) || true
+  else
+    base_commit=""
+  fi
+  if [ -n "$HEAD" ]; then
+    head_commit=$(git rev-parse "$HEAD" 2>/dev/null) || true
+  else
+    head_commit=""
+  fi
+  if [ "$base_commit" == "$head_commit" ] ; then
+    echo "::error::BASE and HEAD commits are the same. TruffleHog won't scan anything. Please see documentation (https://github.com/trufflesecurity/trufflehog#octocat-trufflehog-github-action)."
+    exit 1
+  fi
+##########################################
+## Scan commits based on event type     ##
+##########################################
+else
+  if [ "pull_request" == "push" ]; then
+    COMMIT_LENGTH=$(printenv COMMIT_IDS | jq length)
+    if [ $COMMIT_LENGTH == "0" ]; then
+      echo "No commits to scan"
+      exit 0
+    fi
+    HEAD=
+    if [  == "0000000000000000000000000000000000000000" ]; then
+      BASE=""
+    else
+      BASE=
+    fi
+  elif [ "pull_request" == "workflow_dispatch" ] || [ "pull_request" == "schedule" ]; then
+    BASE=""
+    HEAD=""
+  elif [ "pull_request" == "pull_request" ]; then
+    BASE=
+    HEAD=
+  fi
+fi
+##########################################
+##          Run TruffleHog              ##
+##########################################
+docker run --rm -v .:/tmp -w /tmp \
+"${IMAGE}:${VERSION}" \
+git file:///tmp/ \
+--since-commit \
+${BASE:-''} \
+--branch \
+${HEAD:-''} \
+--fail \
+--no-update \
+--github-actions \
+${ARGS:-''}
+ [22.522969255s]
+[CI/Secret scan (TruffleHog)]   ✅  Success - Main Fail on verified or unverifiable credentials [42.457207579s]
+[CI/Secret scan (TruffleHog)] ⭐ Run Post Fail on verified or unverifiable credentials
+[CI/Secret scan (TruffleHog)]   🐳  docker cp src=/root/.cache/act/trufflesecurity-trufflehog@4dd8831c5f12599465d4d45c3c447b4018a34c85/ dst=/var/run/act/actions/trufflesecurity-trufflehog@4dd8831c5f12599465d4d45c3c447b4018a34c85/
+[CI/Lint and unit tests     ]   | No known vulnerabilities found
+[CI/Lint and unit tests     ]   ✅  Success - Main Dependency vulnerability audit [25.440903226s]
+[CI/Lint and unit tests     ] ⭐ Run Main Shellcheck
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/7] user= workdir=
+[CI/Secret scan (TruffleHog)]   ✅  Success - Post Fail on verified or unverifiable credentials [12.94965738s]
+[CI/Secret scan (TruffleHog)] ⭐ Run Complete job
+[CI/Secret scan (TruffleHog)] Cleaning up container for job Secret scan (TruffleHog)
+[CI/Secret scan (TruffleHog)]   ✅  Success - Complete job
+[CI/Secret scan (TruffleHog)] 🏁  Job succeeded
+[CI/Lint and unit tests     ]   | debconf: delaying package configuration, since apt-utils is not installed
+[CI/Lint and unit tests     ]   | Selecting previously unselected package shellcheck.
+[CI/Lint and unit tests     ]   | (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 26493 files and directories currently installed.)
+[CI/Lint and unit tests     ]   | Preparing to unpack .../shellcheck_0.9.0-1_amd64.deb ...
+[CI/Lint and unit tests     ]   | Unpacking shellcheck (0.9.0-1) ...
+[CI/Lint and unit tests     ]   | Setting up shellcheck (0.9.0-1) ...
+[CI/Lint and unit tests     ]   ✅  Success - Main Shellcheck [33.903327522s]
+[CI/Lint and unit tests     ] ⭐ Run Main Dockerfile lint
+[CI/Lint and unit tests     ]   🐳  docker build -t act-hadolint-hadolint-action-06be81baf89a55ffd0e24b8f04a4185738dd3387-dockeraction:latest --platform linux/amd64 /root/.cache/act/hadolint-hadolint-action@06be81baf89a55ffd0e24b8f04a4185738dd3387
+[CI/Lint and unit tests     ]   🐳  docker pull image=act-hadolint-hadolint-action-06be81baf89a55ffd0e24b8f04a4185738dd3387-dockeraction:latest platform=linux/amd64 username= forcePull=false
+[CI/Lint and unit tests     ]   🐳  docker create image=act-hadolint-hadolint-action-06be81baf89a55ffd0e24b8f04a4185738dd3387-dockeraction:latest platform=linux/amd64 entrypoint=[] cmd=["Dockerfile"] network="container:act-CI-Lint-and-unit-tests-c03b8ebcaf44e16e5fa7baeb809643689a59dc9e30101293d5b451c29e7b3b6e"
+[CI/Lint and unit tests     ]   🐳  docker run image=act-hadolint-hadolint-action-06be81baf89a55ffd0e24b8f04a4185738dd3387-dockeraction:latest platform=linux/amd64 entrypoint=[] cmd=["Dockerfile"] network="container:act-CI-Lint-and-unit-tests-c03b8ebcaf44e16e5fa7baeb809643689a59dc9e30101293d5b451c29e7b3b6e"
+[CI/Lint and unit tests     ]   ❓ add-matcher /root/problem-matcher.json
+[CI/Lint and unit tests     ]   | 
+[CI/Lint and unit tests     ]   | Hadolint output saved to: /dev/stdout
+[CI/Lint and unit tests     ]   ❓  ::remove-matcher owner=hadolint/hadolint-action::
+[CI/Lint and unit tests     ]   ✅  Success - Main Dockerfile lint [1.032009528s]
+[CI/Lint and unit tests     ]   ⚙  ::set-env:: HADOLINT_RESULTS=
+[CI/Lint and unit tests     ]   ⚙  ::set-output:: results=
+[CI/Lint and unit tests     ] ⭐ Run Post actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+[CI/Lint and unit tests     ]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/dist/cache-save/index.js] user= workdir=
+[CI/Lint and unit tests     ]   | [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /root/selise-work/act-container-cicd-lab --files-from manifest.txt --use-compress-program zstdmt
+[CI/Lint and unit tests     ]   | Cache Size: ~6 MB (5923376 B)
+[CI/Lint and unit tests     ]   | Cache saved successfully
+[CI/Lint and unit tests     ]   | Cache saved with the key: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.15-pip-0ec862ade7bddd2656452672123b47b52dd5670ab63c495297599469fc929ae2
+[CI/Lint and unit tests     ]   ✅  Success - Post actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 [319.897426ms]
+[CI/Lint and unit tests     ] ⭐ Run Complete job
+[CI/Lint and unit tests     ] Cleaning up container for job Lint and unit tests
+[CI/Lint and unit tests     ]   ✅  Success - Complete job
+[CI/Lint and unit tests     ] 🏁  Job succeeded
+[CI/Build, smoke test and scan image] ⭐ Run Set up job
+[CI/Build, smoke test and scan image] 🚀  Start image=catthehacker/ubuntu:act-24.04
+[CI/Build, smoke test and scan image]   🐳  docker pull image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 username= forcePull=true
+[CI/Build, smoke test and scan image]   🐳  docker create image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Build, smoke test and scan image]   🐳  docker run image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[CI/Build, smoke test and scan image]   ✅  Success - Set up job
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/docker/setup-buildx-action' # ref=f87e5991a6d7451dcb8d9637bfbc97413f497069
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/docker/build-push-action' # ref=c3c9e263c25d99ce0380d002d59b67737d91b0dc
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/aquasecurity/trivy-action' # ref=ed142fd0673e97e23eac54620cfb913e5ce36c25
+[CI/Build, smoke test and scan image] ⭐ Run Pre Vulnerability scan (fail on fixable HIGH/CRITICAL)
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/aquasecurity/setup-trivy' # ref=3fb12ec12f41e471780db15c232d5dd185dcb514
+[CI/Build, smoke test and scan image] ⭐ Run Pre Install Trivy
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/actions/cache' # ref=9255dc7a253b0ccc959486e2bca901246202afeb
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/actions/checkout' # ref=8e8c483db84b4bee98b60c0593521ed34d9990e8
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/actions/cache' # ref=9255dc7a253b0ccc959486e2bca901246202afeb
+[CI/Build, smoke test and scan image]   ✅  Success - Pre Install Trivy [10.069973409s]
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/actions/cache' # ref=27d5ce7f107fe9357f9df03efb73ab90386fccae
+[CI/Build, smoke test and scan image]   ✅  Success - Pre Vulnerability scan (fail on fixable HIGH/CRITICAL) [12.512592248s]
+[CI/Build, smoke test and scan image]   ☁  git clone 'https://github.com/actions/upload-artifact' # ref=043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+[CI/Build, smoke test and scan image] ⭐ Run Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/selise-work/act-container-cicd-lab/. dst=/root/selise-work/act-container-cicd-lab
+[CI/Build, smoke test and scan image]   ✅  Success - Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 [41.618988ms]
+[CI/Build, smoke test and scan image] ⭐ Run Main Compute version
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/version] user= workdir=
+[CI/Build, smoke test and scan image]   ✅  Success - Main Compute version [56.818586ms]
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: value=0.0.0-8a0c23c
+[CI/Build, smoke test and scan image] ⭐ Run Main docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/docker-setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069/ dst=/var/run/act/actions/docker-setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069/
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/docker-setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069/dist/index.cjs] user= workdir=
+[CI/Build, smoke test and scan image]   ❓  ::group::Docker info
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker version
+[CI/Build, smoke test and scan image]   | Client:
+[CI/Build, smoke test and scan image]   |  Version:           29.7.2-1
+[CI/Build, smoke test and scan image]   |  API version:       1.55
+[CI/Build, smoke test and scan image]   |  Go version:        go1.26.5
+[CI/Build, smoke test and scan image]   |  Git commit:        a7dcaa6fdb6ed04aacbfdc76357fdae01605609e
+[CI/Build, smoke test and scan image]   |  Built:             Fri Aug  7 12:11:17 2026
+[CI/Build, smoke test and scan image]   |  OS/Arch:           linux/amd64
+[CI/Build, smoke test and scan image]   |  Context:           default
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | Server: Docker Engine - Community
+[CI/Build, smoke test and scan image]   |  Engine:
+[CI/Build, smoke test and scan image]   |   Version:          29.8.1
+[CI/Build, smoke test and scan image]   |   API version:      1.56 (minimum version 1.40)
+[CI/Build, smoke test and scan image]   |   Go version:       go1.26.8
+[CI/Build, smoke test and scan image]   |   Git commit:       464cd50
+[CI/Build, smoke test and scan image]   |   Built:            Tue Sep 15 16:26:01 2026
+[CI/Build, smoke test and scan image]   |   OS/Arch:          linux/amd64
+[CI/Build, smoke test and scan image]   |   Experimental:     false
+[CI/Build, smoke test and scan image]   |  containerd:
+[CI/Build, smoke test and scan image]   |   Version:          v2.3.5
+[CI/Build, smoke test and scan image]   |   GitCommit:        1294c24a7da8e5a793ed378161673abe94118892
+[CI/Build, smoke test and scan image]   |  runc:
+[CI/Build, smoke test and scan image]   |   Version:          1.5.1
+[CI/Build, smoke test and scan image]   |   GitCommit:        v1.5.1-0-g8f2685a4
+[CI/Build, smoke test and scan image]   |  docker-init:
+[CI/Build, smoke test and scan image]   |   Version:          0.19.0
+[CI/Build, smoke test and scan image]   |   GitCommit:        de40ad0
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker info
+[CI/Build, smoke test and scan image]   | Client:
+[CI/Build, smoke test and scan image]   |  Version:    29.7.2-1
+[CI/Build, smoke test and scan image]   |  Context:    default
+[CI/Build, smoke test and scan image]   |  Debug Mode: false
+[CI/Build, smoke test and scan image]   |  Plugins:
+[CI/Build, smoke test and scan image]   |   buildx: Docker Buildx (Docker Inc.)
+[CI/Build, smoke test and scan image]   |     Version:  0.36.1-1
+[CI/Build, smoke test and scan image]   |     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+[CI/Build, smoke test and scan image]   |   compose: Docker Compose (Docker Inc.)
+[CI/Build, smoke test and scan image]   |     Version:  5.4.0-2
+[CI/Build, smoke test and scan image]   |     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | Server:
+[CI/Build, smoke test and scan image]   |  Containers: 3
+[CI/Build, smoke test and scan image]   |   Running: 3
+[CI/Build, smoke test and scan image]   |   Paused: 0
+[CI/Build, smoke test and scan image]   |   Stopped: 0
+[CI/Build, smoke test and scan image]   |  Images: 15
+[CI/Build, smoke test and scan image]   |  Server Version: 29.8.1
+[CI/Build, smoke test and scan image]   |  Storage Driver: overlayfs
+[CI/Build, smoke test and scan image]   |   driver-type: io.containerd.snapshotter.v1
+[CI/Build, smoke test and scan image]   |  Logging Driver: json-file
+[CI/Build, smoke test and scan image]   |  Cgroup Driver: systemd
+[CI/Build, smoke test and scan image]   |  Cgroup Version: 2
+[CI/Build, smoke test and scan image]   |  Plugins:
+[CI/Build, smoke test and scan image]   |   Volume: local
+[CI/Build, smoke test and scan image]   |   Network: bridge host ipvlan macvlan null overlay
+[CI/Build, smoke test and scan image]   |   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+[CI/Build, smoke test and scan image]   |  CDI spec directories:
+[CI/Build, smoke test and scan image]   |   /etc/cdi
+[CI/Build, smoke test and scan image]   |   /var/run/cdi
+[CI/Build, smoke test and scan image]   |  Swarm: inactive
+[CI/Build, smoke test and scan image]   |  Runtimes: io.containerd.runc.v2 runc
+[CI/Build, smoke test and scan image]   |  Default Runtime: runc
+[CI/Build, smoke test and scan image]   |  Init Binary: docker-init
+[CI/Build, smoke test and scan image]   |  containerd version: 1294c24a7da8e5a793ed378161673abe94118892
+[CI/Build, smoke test and scan image]   |  runc version: v1.5.1-0-g8f2685a4
+[CI/Build, smoke test and scan image]   |  init version: de40ad0
+[CI/Build, smoke test and scan image]   |  Security Options:
+[CI/Build, smoke test and scan image]   |   seccomp
+[CI/Build, smoke test and scan image]   |    Profile: builtin
+[CI/Build, smoke test and scan image]   |   cgroupns
+[CI/Build, smoke test and scan image]   |  Kernel Version: 6.6.87.2-microsoft-standard-WSL2
+[CI/Build, smoke test and scan image]   |  Operating System: Ubuntu 24.04.4 LTS
+[CI/Build, smoke test and scan image]   |  OSType: linux
+[CI/Build, smoke test and scan image]   |  Architecture: x86_64
+[CI/Build, smoke test and scan image]   |  CPUs: 12
+[CI/Build, smoke test and scan image]   |  Total Memory: 10.7GiB
+[CI/Build, smoke test and scan image]   |  Name: BABAYAGA
+[CI/Build, smoke test and scan image]   |  ID: be490414-5272-4371-af36-37b59b677cde
+[CI/Build, smoke test and scan image]   |  Docker Root Dir: /var/lib/docker
+[CI/Build, smoke test and scan image]   |  Debug Mode: false
+[CI/Build, smoke test and scan image]   |  Experimental: false
+[CI/Build, smoke test and scan image]   |  Insecure Registries:
+[CI/Build, smoke test and scan image]   |   ::1/128
+[CI/Build, smoke test and scan image]   |   127.0.0.0/8
+[CI/Build, smoke test and scan image]   |  Live Restore Enabled: false
+[CI/Build, smoke test and scan image]   |  Firewall Backend: iptables
+[CI/Build, smoke test and scan image]   |   EnableUserlandProxy: true
+[CI/Build, smoke test and scan image]   |   UserlandProxyPath: /usr/bin/docker-proxy
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Buildx version
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx version
+[CI/Build, smoke test and scan image]   | github.com/docker/buildx 0.36.1-1 1d8dde89b8aba914e05e45366770736fea1fd690
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Inspecting default docker context
+[CI/Build, smoke test and scan image]   | [
+[CI/Build, smoke test and scan image]   |   {
+[CI/Build, smoke test and scan image]   |     "Name": "default",
+[CI/Build, smoke test and scan image]   |     "Metadata": {},
+[CI/Build, smoke test and scan image]   |     "Endpoints": {
+[CI/Build, smoke test and scan image]   |       "docker": {
+[CI/Build, smoke test and scan image]   |         "Host": "unix:///var/run/docker.sock",
+[CI/Build, smoke test and scan image]   |         "SkipTLSVerify": false
+[CI/Build, smoke test and scan image]   |       }
+[CI/Build, smoke test and scan image]   |     },
+[CI/Build, smoke test and scan image]   |     "TLSMaterial": {},
+[CI/Build, smoke test and scan image]   |     "Storage": {
+[CI/Build, smoke test and scan image]   |       "MetadataPath": "<IN MEMORY>",
+[CI/Build, smoke test and scan image]   |       "TLSPath": "<IN MEMORY>"
+[CI/Build, smoke test and scan image]   |     }
+[CI/Build, smoke test and scan image]   |   }
+[CI/Build, smoke test and scan image]   | ]
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Pulling BuildKit image(s)
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker pull moby/buildkit:buildx-stable-1
+[CI/Build, smoke test and scan image]   | buildx-stable-1: Pulling from moby/buildkit
+[CI/Build, smoke test and scan image]   | Digest: sha256:cec9f139f45e93c5c69c60f8b07cfad9f43f4ef6b6a6cd917527fea5ff2e3dea
+[CI/Build, smoke test and scan image]   | Status: Image is up to date for moby/buildkit:buildx-stable-1
+[CI/Build, smoke test and scan image]   | docker.io/moby/buildkit:buildx-stable-1
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Creating a new builder instance
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx create --name builder-95369343-cad5-4fc7-813d-afb1f3659b53 --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+[CI/Build, smoke test and scan image]   | builder-95369343-cad5-4fc7-813d-afb1f3659b53
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Booting builder
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx inspect --bootstrap --builder builder-95369343-cad5-4fc7-813d-afb1f3659b53
+[CI/Build, smoke test and scan image]   | #1 [internal] booting buildkit
+[CI/Build, smoke test and scan image]   | #1 pulling image moby/buildkit:buildx-stable-1
+[CI/Build, smoke test and scan image]   | #1 pulling image moby/buildkit:buildx-stable-1 1.8s done
+[CI/Build, smoke test and scan image]   | #1 creating container buildx_buildkit_builder-95369343-cad5-4fc7-813d-afb1f3659b530
+[CI/Build, smoke test and scan image]   | #1 creating container buildx_buildkit_builder-95369343-cad5-4fc7-813d-afb1f3659b530 0.6s done
+[CI/Build, smoke test and scan image]   | #1 DONE 2.5s
+[CI/Build, smoke test and scan image]   | Name:          builder-95369343-cad5-4fc7-813d-afb1f3659b53
+[CI/Build, smoke test and scan image]   | Driver:        docker-container
+[CI/Build, smoke test and scan image]   | Last Activity: 2026-10-10 14:42:20 +0000 UTC
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | Nodes:
+[CI/Build, smoke test and scan image]   | Name:                  builder-95369343-cad5-4fc7-813d-afb1f3659b530
+[CI/Build, smoke test and scan image]   | Endpoint:              unix:///var/run/docker.sock
+[CI/Build, smoke test and scan image]   | Status:                running
+[CI/Build, smoke test and scan image]   | BuildKit daemon flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+[CI/Build, smoke test and scan image]   | BuildKit version:      v0.33.1
+[CI/Build, smoke test and scan image]   | Platforms:             linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/amd64/v4, linux/386
+[CI/Build, smoke test and scan image]   | Labels:
+[CI/Build, smoke test and scan image]   |  org.mobyproject.buildkit.worker.executor:         oci
+[CI/Build, smoke test and scan image]   |  org.mobyproject.buildkit.worker.hostname:         1e93de6a7d02
+[CI/Build, smoke test and scan image]   |  org.mobyproject.buildkit.worker.network:          host
+[CI/Build, smoke test and scan image]   |  org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+[CI/Build, smoke test and scan image]   |  org.mobyproject.buildkit.worker.selinux.enabled:  false
+[CI/Build, smoke test and scan image]   |  org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+[CI/Build, smoke test and scan image]   | GC Policy rule#0:
+[CI/Build, smoke test and scan image]   |  All:            false
+[CI/Build, smoke test and scan image]   |  Filters:        type==source.local type==exec.cachemount type==source.git.checkout
+[CI/Build, smoke test and scan image]   |  Keep Duration:  48h0m0s
+[CI/Build, smoke test and scan image]   |  Max Used Space: 488.3MiB
+[CI/Build, smoke test and scan image]   | GC Policy rule#1:
+[CI/Build, smoke test and scan image]   |  All:            false
+[CI/Build, smoke test and scan image]   |  Keep Duration:  1440h0m0s
+[CI/Build, smoke test and scan image]   |  Reserved Space: 9.313GiB
+[CI/Build, smoke test and scan image]   |  Max Used Space: 93.13GiB
+[CI/Build, smoke test and scan image]   |  Min Free Space: 37.25GiB
+[CI/Build, smoke test and scan image]   | GC Policy rule#2:
+[CI/Build, smoke test and scan image]   |  All:            false
+[CI/Build, smoke test and scan image]   |  Reserved Space: 9.313GiB
+[CI/Build, smoke test and scan image]   |  Max Used Space: 93.13GiB
+[CI/Build, smoke test and scan image]   |  Min Free Space: 37.25GiB
+[CI/Build, smoke test and scan image]   | GC Policy rule#3:
+[CI/Build, smoke test and scan image]   |  All:            true
+[CI/Build, smoke test and scan image]   |  Reserved Space: 9.313GiB
+[CI/Build, smoke test and scan image]   |  Max Used Space: 93.13GiB
+[CI/Build, smoke test and scan image]   |  Min Free Space: 37.25GiB
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Inspect builder
+[CI/Build, smoke test and scan image]   | {
+[CI/Build, smoke test and scan image]   |   "nodes": [
+[CI/Build, smoke test and scan image]   |     {
+[CI/Build, smoke test and scan image]   |       "name": "builder-95369343-cad5-4fc7-813d-afb1f3659b530",
+[CI/Build, smoke test and scan image]   |       "endpoint": "unix:///var/run/docker.sock",
+[CI/Build, smoke test and scan image]   |       "status": "running",
+[CI/Build, smoke test and scan image]   |       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+[CI/Build, smoke test and scan image]   |       "buildkit": "v0.33.1",
+[CI/Build, smoke test and scan image]   |       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+[CI/Build, smoke test and scan image]   |       "features": {
+[CI/Build, smoke test and scan image]   |         "Automatically load images to the Docker Engine image store": true,
+[CI/Build, smoke test and scan image]   |         "Cache export": true,
+[CI/Build, smoke test and scan image]   |         "Direct push": true,
+[CI/Build, smoke test and scan image]   |         "Docker exporter": true,
+[CI/Build, smoke test and scan image]   |         "Multi-platform build": true,
+[CI/Build, smoke test and scan image]   |         "OCI exporter": true
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       "labels": {
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.executor": "oci",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.hostname": "1e93de6a7d02",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.network": "host",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       "gcPolicy": [
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": false,
+[CI/Build, smoke test and scan image]   |           "filter": [
+[CI/Build, smoke test and scan image]   |             "type==source.local type==exec.cachemount type==source.git.checkout"
+[CI/Build, smoke test and scan image]   |           ],
+[CI/Build, smoke test and scan image]   |           "keepDuration": "48h0m0s",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "488.3MiB"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": false,
+[CI/Build, smoke test and scan image]   |           "keepDuration": "1440h0m0s",
+[CI/Build, smoke test and scan image]   |           "reservedSpace": "9.313GiB",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "93.13GiB",
+[CI/Build, smoke test and scan image]   |           "minFreeSpace": "37.25GiB"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": false,
+[CI/Build, smoke test and scan image]   |           "reservedSpace": "9.313GiB",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "93.13GiB",
+[CI/Build, smoke test and scan image]   |           "minFreeSpace": "37.25GiB"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": true,
+[CI/Build, smoke test and scan image]   |           "reservedSpace": "9.313GiB",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "93.13GiB",
+[CI/Build, smoke test and scan image]   |           "minFreeSpace": "37.25GiB"
+[CI/Build, smoke test and scan image]   |         }
+[CI/Build, smoke test and scan image]   |       ]
+[CI/Build, smoke test and scan image]   |     }
+[CI/Build, smoke test and scan image]   |   ],
+[CI/Build, smoke test and scan image]   |   "name": "builder-95369343-cad5-4fc7-813d-afb1f3659b53",
+[CI/Build, smoke test and scan image]   |   "driver": "docker-container",
+[CI/Build, smoke test and scan image]   |   "lastActivity": "2026-10-10T14:42:20.000Z"
+[CI/Build, smoke test and scan image]   | }
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::BuildKit version
+[CI/Build, smoke test and scan image]   | builder-95369343-cad5-4fc7-813d-afb1f3659b530: v0.33.1
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ✅  Success - Main docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 [8.230418873s]
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: name=builder-95369343-cad5-4fc7-813d-afb1f3659b53
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: driver=docker-container
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: platforms=linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: nodes=[
+  {
+    "name": "builder-95369343-cad5-4fc7-813d-afb1f3659b530",
+    "endpoint": "unix:///var/run/docker.sock",
+    "status": "running",
+    "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+    "buildkit": "v0.33.1",
+    "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+    "features": {
+      "Automatically load images to the Docker Engine image store": true,
+      "Cache export": true,
+      "Direct push": true,
+      "Docker exporter": true,
+      "Multi-platform build": true,
+      "OCI exporter": true
+    },
+    "labels": {
+      "org.mobyproject.buildkit.worker.executor": "oci",
+      "org.mobyproject.buildkit.worker.hostname": "1e93de6a7d02",
+      "org.mobyproject.buildkit.worker.network": "host",
+      "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+      "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+      "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+    },
+    "gcPolicy": [
+      {
+        "all": false,
+        "filter": [
+          "type==source.local type==exec.cachemount type==source.git.checkout"
+        ],
+        "keepDuration": "48h0m0s",
+        "maxUsedSpace": "488.3MiB"
+      },
+      {
+        "all": false,
+        "keepDuration": "1440h0m0s",
+        "reservedSpace": "9.313GiB",
+        "maxUsedSpace": "93.13GiB",
+        "minFreeSpace": "37.25GiB"
+      },
+      {
+        "all": false,
+        "reservedSpace": "9.313GiB",
+        "maxUsedSpace": "93.13GiB",
+        "minFreeSpace": "37.25GiB"
+      },
+      {
+        "all": true,
+        "reservedSpace": "9.313GiB",
+        "maxUsedSpace": "93.13GiB",
+        "minFreeSpace": "37.25GiB"
+      }
+    ]
+  }
+]
+[CI/Build, smoke test and scan image] ⭐ Run Main Build image
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/docker-build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc/ dst=/var/run/act/actions/docker-build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc/
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/docker-build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc/dist/index.cjs] user= workdir=
+[CI/Build, smoke test and scan image]   ❓  ::group::GitHub Actions runtime token ACs
+[CI/Build, smoke test and scan image]   | : write
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Docker info
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker version
+[CI/Build, smoke test and scan image]   | Client:
+[CI/Build, smoke test and scan image]   |  Version:           29.7.2-1
+[CI/Build, smoke test and scan image]   |  API version:       1.55
+[CI/Build, smoke test and scan image]   |  Go version:        go1.26.5
+[CI/Build, smoke test and scan image]   |  Git commit:        a7dcaa6fdb6ed04aacbfdc76357fdae01605609e
+[CI/Build, smoke test and scan image]   |  Built:             Fri Aug  7 12:11:17 2026
+[CI/Build, smoke test and scan image]   |  OS/Arch:           linux/amd64
+[CI/Build, smoke test and scan image]   |  Context:           default
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | Server: Docker Engine - Community
+[CI/Build, smoke test and scan image]   |  Engine:
+[CI/Build, smoke test and scan image]   |   Version:          29.8.1
+[CI/Build, smoke test and scan image]   |   API version:      1.56 (minimum version 1.40)
+[CI/Build, smoke test and scan image]   |   Go version:       go1.26.8
+[CI/Build, smoke test and scan image]   |   Git commit:       464cd50
+[CI/Build, smoke test and scan image]   |   Built:            Tue Sep 15 16:26:01 2026
+[CI/Build, smoke test and scan image]   |   OS/Arch:          linux/amd64
+[CI/Build, smoke test and scan image]   |   Experimental:     false
+[CI/Build, smoke test and scan image]   |  containerd:
+[CI/Build, smoke test and scan image]   |   Version:          v2.3.5
+[CI/Build, smoke test and scan image]   |   GitCommit:        1294c24a7da8e5a793ed378161673abe94118892
+[CI/Build, smoke test and scan image]   |  runc:
+[CI/Build, smoke test and scan image]   |   Version:          1.5.1
+[CI/Build, smoke test and scan image]   |   GitCommit:        v1.5.1-0-g8f2685a4
+[CI/Build, smoke test and scan image]   |  docker-init:
+[CI/Build, smoke test and scan image]   |   Version:          0.19.0
+[CI/Build, smoke test and scan image]   |   GitCommit:        de40ad0
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker info
+[CI/Build, smoke test and scan image]   | Client:
+[CI/Build, smoke test and scan image]   |  Version:    29.7.2-1
+[CI/Build, smoke test and scan image]   |  Context:    default
+[CI/Build, smoke test and scan image]   |  Debug Mode: false
+[CI/Build, smoke test and scan image]   |  Plugins:
+[CI/Build, smoke test and scan image]   |   buildx: Docker Buildx (Docker Inc.)
+[CI/Build, smoke test and scan image]   |     Version:  0.36.1-1
+[CI/Build, smoke test and scan image]   |     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+[CI/Build, smoke test and scan image]   |   compose: Docker Compose (Docker Inc.)
+[CI/Build, smoke test and scan image]   |     Version:  5.4.0-2
+[CI/Build, smoke test and scan image]   |     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | Server:
+[CI/Build, smoke test and scan image]   |  Containers: 4
+[CI/Build, smoke test and scan image]   |   Running: 4
+[CI/Build, smoke test and scan image]   |   Paused: 0
+[CI/Build, smoke test and scan image]   |   Stopped: 0
+[CI/Build, smoke test and scan image]   |  Images: 15
+[CI/Build, smoke test and scan image]   |  Server Version: 29.8.1
+[CI/Build, smoke test and scan image]   |  Storage Driver: overlayfs
+[CI/Build, smoke test and scan image]   |   driver-type: io.containerd.snapshotter.v1
+[CI/Build, smoke test and scan image]   |  Logging Driver: json-file
+[CI/Build, smoke test and scan image]   |  Cgroup Driver: systemd
+[CI/Build, smoke test and scan image]   |  Cgroup Version: 2
+[CI/Build, smoke test and scan image]   |  Plugins:
+[CI/Build, smoke test and scan image]   |   Volume: local
+[CI/Build, smoke test and scan image]   |   Network: bridge host ipvlan macvlan null overlay
+[CI/Build, smoke test and scan image]   |   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+[CI/Build, smoke test and scan image]   |  CDI spec directories:
+[CI/Build, smoke test and scan image]   |   /etc/cdi
+[CI/Build, smoke test and scan image]   |   /var/run/cdi
+[CI/Build, smoke test and scan image]   |  Swarm: inactive
+[CI/Build, smoke test and scan image]   |  Runtimes: io.containerd.runc.v2 runc
+[CI/Build, smoke test and scan image]   |  Default Runtime: runc
+[CI/Build, smoke test and scan image]   |  Init Binary: docker-init
+[CI/Build, smoke test and scan image]   |  containerd version: 1294c24a7da8e5a793ed378161673abe94118892
+[CI/Build, smoke test and scan image]   |  runc version: v1.5.1-0-g8f2685a4
+[CI/Build, smoke test and scan image]   |  init version: de40ad0
+[CI/Build, smoke test and scan image]   |  Security Options:
+[CI/Build, smoke test and scan image]   |   seccomp
+[CI/Build, smoke test and scan image]   |    Profile: builtin
+[CI/Build, smoke test and scan image]   |   cgroupns
+[CI/Build, smoke test and scan image]   |  Kernel Version: 6.6.87.2-microsoft-standard-WSL2
+[CI/Build, smoke test and scan image]   |  Operating System: Ubuntu 24.04.4 LTS
+[CI/Build, smoke test and scan image]   |  OSType: linux
+[CI/Build, smoke test and scan image]   |  Architecture: x86_64
+[CI/Build, smoke test and scan image]   |  CPUs: 12
+[CI/Build, smoke test and scan image]   |  Total Memory: 10.7GiB
+[CI/Build, smoke test and scan image]   |  Name: BABAYAGA
+[CI/Build, smoke test and scan image]   |  ID: be490414-5272-4371-af36-37b59b677cde
+[CI/Build, smoke test and scan image]   |  Docker Root Dir: /var/lib/docker
+[CI/Build, smoke test and scan image]   |  Debug Mode: false
+[CI/Build, smoke test and scan image]   |  Experimental: false
+[CI/Build, smoke test and scan image]   |  Insecure Registries:
+[CI/Build, smoke test and scan image]   |   ::1/128
+[CI/Build, smoke test and scan image]   |   127.0.0.0/8
+[CI/Build, smoke test and scan image]   |  Live Restore Enabled: false
+[CI/Build, smoke test and scan image]   |  Firewall Backend: iptables
+[CI/Build, smoke test and scan image]   |   EnableUserlandProxy: true
+[CI/Build, smoke test and scan image]   |   UserlandProxyPath: /usr/bin/docker-proxy
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Proxy configuration
+[CI/Build, smoke test and scan image]   | No proxy configuration found
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Buildx version
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx version
+[CI/Build, smoke test and scan image]   | github.com/docker/buildx 0.36.1-1 1d8dde89b8aba914e05e45366770736fea1fd690
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Builder info
+[CI/Build, smoke test and scan image]   | {
+[CI/Build, smoke test and scan image]   |   "nodes": [
+[CI/Build, smoke test and scan image]   |     {
+[CI/Build, smoke test and scan image]   |       "name": "builder-95369343-cad5-4fc7-813d-afb1f3659b530",
+[CI/Build, smoke test and scan image]   |       "endpoint": "unix:///var/run/docker.sock",
+[CI/Build, smoke test and scan image]   |       "status": "running",
+[CI/Build, smoke test and scan image]   |       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+[CI/Build, smoke test and scan image]   |       "buildkit": "v0.33.1",
+[CI/Build, smoke test and scan image]   |       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+[CI/Build, smoke test and scan image]   |       "features": {
+[CI/Build, smoke test and scan image]   |         "Automatically load images to the Docker Engine image store": true,
+[CI/Build, smoke test and scan image]   |         "Cache export": true,
+[CI/Build, smoke test and scan image]   |         "Direct push": true,
+[CI/Build, smoke test and scan image]   |         "Docker exporter": true,
+[CI/Build, smoke test and scan image]   |         "Multi-platform build": true,
+[CI/Build, smoke test and scan image]   |         "OCI exporter": true
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       "labels": {
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.executor": "oci",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.hostname": "1e93de6a7d02",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.network": "host",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+[CI/Build, smoke test and scan image]   |         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       "gcPolicy": [
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": false,
+[CI/Build, smoke test and scan image]   |           "filter": [
+[CI/Build, smoke test and scan image]   |             "type==source.local type==exec.cachemount type==source.git.checkout"
+[CI/Build, smoke test and scan image]   |           ],
+[CI/Build, smoke test and scan image]   |           "keepDuration": "48h0m0s",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "488.3MiB"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": false,
+[CI/Build, smoke test and scan image]   |           "keepDuration": "1440h0m0s",
+[CI/Build, smoke test and scan image]   |           "reservedSpace": "9.313GiB",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "93.13GiB",
+[CI/Build, smoke test and scan image]   |           "minFreeSpace": "37.25GiB"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": false,
+[CI/Build, smoke test and scan image]   |           "reservedSpace": "9.313GiB",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "93.13GiB",
+[CI/Build, smoke test and scan image]   |           "minFreeSpace": "37.25GiB"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         {
+[CI/Build, smoke test and scan image]   |           "all": true,
+[CI/Build, smoke test and scan image]   |           "reservedSpace": "9.313GiB",
+[CI/Build, smoke test and scan image]   |           "maxUsedSpace": "93.13GiB",
+[CI/Build, smoke test and scan image]   |           "minFreeSpace": "37.25GiB"
+[CI/Build, smoke test and scan image]   |         }
+[CI/Build, smoke test and scan image]   |       ]
+[CI/Build, smoke test and scan image]   |     }
+[CI/Build, smoke test and scan image]   |   ],
+[CI/Build, smoke test and scan image]   |   "name": "builder-95369343-cad5-4fc7-813d-afb1f3659b53",
+[CI/Build, smoke test and scan image]   |   "driver": "docker-container",
+[CI/Build, smoke test and scan image]   |   "lastActivity": "2026-10-10T14:42:20.000Z"
+[CI/Build, smoke test and scan image]   | }
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx build --build-arg APP_VERSION=0.0.0-8a0c23c --cache-from type=gha --cache-to type=gha,mode=max --iidfile /tmp/docker-actions-toolkit-iuaNlK/build-iidfile-db8aaf6020.txt --tag pulse-api:ci --load --metadata-file /tmp/docker-actions-toolkit-iuaNlK/build-metadata-fb5291cb98.json .
+[CI/Build, smoke test and scan image]   | #0 building with "builder-95369343-cad5-4fc7-813d-afb1f3659b53" instance using docker-container driver
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #1 [internal] load build definition from Dockerfile
+[CI/Build, smoke test and scan image]   | #1 transferring dockerfile: 2.12kB done
+[CI/Build, smoke test and scan image]   | #1 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+[CI/Build, smoke test and scan image]   | #2 DONE 2.8s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+[CI/Build, smoke test and scan image]   | #3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0B / 14.28MB 0.2s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 1.05MB / 14.28MB 0.9s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 2.10MB / 14.28MB 1.4s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 3.15MB / 14.28MB 1.8s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 4.19MB / 14.28MB 2.4s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 5.24MB / 14.28MB 2.9s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 6.29MB / 14.28MB 3.3s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 7.34MB / 14.28MB 3.6s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 8.39MB / 14.28MB 4.0s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 9.44MB / 14.28MB 4.4s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 10.49MB / 14.28MB 4.3s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 11.53MB / 14.28MB 4.8s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 12.58MB / 14.28MB 5.4s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 13.63MB / 14.28MB 6.1s
+[CI/Build, smoke test and scan image]   | #3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 14.28MB / 14.28MB 6.8s done
+[CI/Build, smoke test and scan image]   | #3 extracting sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0.1s done
+[CI/Build, smoke test and scan image]   | #3 DONE 6.9s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #4 [internal] load metadata for docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+[CI/Build, smoke test and scan image]   | #4 DONE 1.9s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #5 [internal] load .dockerignore
+[CI/Build, smoke test and scan image]   | #5 transferring context: 156B done
+[CI/Build, smoke test and scan image]   | #5 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #6 importing cache manifest from gha:16480507521743340230
+[CI/Build, smoke test and scan image]   | #6 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #7 [internal] load build context
+[CI/Build, smoke test and scan image]   | #7 transferring context: 15.40kB done
+[CI/Build, smoke test and scan image]   | #7 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #8 [builder 1/6] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+[CI/Build, smoke test and scan image]   | #8 resolve docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1 done
+[CI/Build, smoke test and scan image]   | #8 ...
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #9 [builder 2/6] RUN python -m venv /opt/venv
+[CI/Build, smoke test and scan image]   | #9 CACHED
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #10 [builder 3/6] COPY requirements.txt /tmp/requirements.txt
+[CI/Build, smoke test and scan image]   | #10 CACHED
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #11 [builder 4/6] RUN /opt/venv/bin/pip install --no-deps -r /tmp/requirements.txt  && /opt/venv/bin/pip uninstall --yes --quiet pip
+[CI/Build, smoke test and scan image]   | #11 CACHED
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #12 [builder 5/6] COPY app/ /srv/app/
+[CI/Build, smoke test and scan image]   | #12 CACHED
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #8 [builder 1/6] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+[CI/Build, smoke test and scan image]   | #8 sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 0B / 249B 0.2s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0B / 12.12MB 0.2s
+[CI/Build, smoke test and scan image]   | #8 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0B / 1.29MB 0.2s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0B / 29.84MB 0.2s
+[CI/Build, smoke test and scan image]   | #8 ...
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #13 [builder 6/6] RUN /opt/venv/bin/python -m compileall -q /srv/app /opt/venv
+[CI/Build, smoke test and scan image]   | #13 CACHED
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #8 [builder 1/6] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+[CI/Build, smoke test and scan image]   | #8 sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 249B / 249B 0.3s done
+[CI/Build, smoke test and scan image]   | #8 ...
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #13 [builder 6/6] RUN /opt/venv/bin/python -m compileall -q /srv/app /opt/venv
+[CI/Build, smoke test and scan image]   | #13 sha256:9c67c934845df6047f077032cc10527c151d11e773774d7a10914550f0e4aee1 11.67kB / 11.67kB 0.0s done
+[CI/Build, smoke test and scan image]   | #13 sha256:ec823e875c154832e1fba74a867afcb1932d186887481f72cdd793bec94b97ed 5.16kB / 5.16kB 0.0s done
+[CI/Build, smoke test and scan image]   | #13 sha256:ef75f479a2624f2a5b9b660c16b6fd7648ccc9ed14f435651dd5bfee736c7ab6 377B / 377B 0.0s done
+[CI/Build, smoke test and scan image]   | #13 sha256:dd1fa6a6bb6ac7fc3ac63d261571d99239d5d7e65405071f2db1e07f7565c2fc 5.59MB / 5.59MB 0.0s done
+[CI/Build, smoke test and scan image]   | #13 sha256:4903024fefb9d14b4c2651934809a05bbc9a59b7a5eb93e45defcc7edd0c59b2 5.68MB / 5.68MB 0.0s done
+[CI/Build, smoke test and scan image]   | #13 DONE 0.5s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #8 [builder 1/6] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+[CI/Build, smoke test and scan image]   | #8 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 1.29MB / 1.29MB 1.2s done
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 2.10MB / 29.84MB 1.5s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 1.05MB / 12.12MB 2.0s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 4.19MB / 29.84MB 2.0s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 6.29MB / 29.84MB 2.4s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 8.39MB / 29.84MB 3.0s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 2.10MB / 12.12MB 3.3s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 10.49MB / 29.84MB 3.6s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 12.58MB / 29.84MB 4.1s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 14.68MB / 29.84MB 4.5s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 3.15MB / 12.12MB 4.8s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 16.78MB / 29.84MB 5.0s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 18.87MB / 29.84MB 5.7s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 20.97MB / 29.84MB 6.3s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 4.19MB / 12.12MB 6.6s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 23.07MB / 29.84MB 6.9s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 25.17MB / 29.84MB 7.4s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 27.26MB / 29.84MB 8.0s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 5.24MB / 12.12MB 8.7s
+[CI/Build, smoke test and scan image]   | #8 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 9.0s done
+[CI/Build, smoke test and scan image]   | #8 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e
+[CI/Build, smoke test and scan image]   | #8 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0.7s done
+[CI/Build, smoke test and scan image]   | #8 extracting sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0.1s done
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 6.29MB / 12.12MB 11.1s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 7.34MB / 12.12MB 14.6s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 7.34MB / 12.12MB 19.7s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 8.39MB / 12.12MB 19.8s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 9.44MB / 12.12MB 21.2s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 10.49MB / 12.12MB 24.8s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 11.53MB / 12.12MB 27.0s
+[CI/Build, smoke test and scan image]   | #8 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 12.12MB / 12.12MB 28.8s done
+[CI/Build, smoke test and scan image]   | #8 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4
+[CI/Build, smoke test and scan image]   | #8 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0.4s done
+[CI/Build, smoke test and scan image]   | #8 DONE 29.3s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #8 [builder 1/6] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+[CI/Build, smoke test and scan image]   | #8 extracting sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 done
+[CI/Build, smoke test and scan image]   | #8 DONE 29.3s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #14 [runtime 2/5] RUN groupadd --system --gid 10001 app  && useradd --system --uid 10001 --gid app --no-create-home --shell /usr/sbin/nologin app
+[CI/Build, smoke test and scan image]   | #14 0.091 useradd warning: app's uid 10001 is greater than SYS_UID_MAX 999
+[CI/Build, smoke test and scan image]   | #14 DONE 0.2s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #13 [builder 6/6] RUN /opt/venv/bin/python -m compileall -q /srv/app /opt/venv
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:4903024fefb9d14b4c2651934809a05bbc9a59b7a5eb93e45defcc7edd0c59b2
+[CI/Build, smoke test and scan image]   | #13 ...
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #15 [runtime 3/5] WORKDIR /srv
+[CI/Build, smoke test and scan image]   | #15 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #13 [builder 6/6] RUN /opt/venv/bin/python -m compileall -q /srv/app /opt/venv
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:4903024fefb9d14b4c2651934809a05bbc9a59b7a5eb93e45defcc7edd0c59b2 0.2s done
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:ef75f479a2624f2a5b9b660c16b6fd7648ccc9ed14f435651dd5bfee736c7ab6 0.0s done
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:dd1fa6a6bb6ac7fc3ac63d261571d99239d5d7e65405071f2db1e07f7565c2fc
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:dd1fa6a6bb6ac7fc3ac63d261571d99239d5d7e65405071f2db1e07f7565c2fc 0.2s done
+[CI/Build, smoke test and scan image]   | #13 DONE 1.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #13 [builder 6/6] RUN /opt/venv/bin/python -m compileall -q /srv/app /opt/venv
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:ec823e875c154832e1fba74a867afcb1932d186887481f72cdd793bec94b97ed 0.0s done
+[CI/Build, smoke test and scan image]   | #13 extracting sha256:9c67c934845df6047f077032cc10527c151d11e773774d7a10914550f0e4aee1 done
+[CI/Build, smoke test and scan image]   | #13 DONE 1.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #16 [runtime 4/5] COPY --from=builder /opt/venv /opt/venv
+[CI/Build, smoke test and scan image]   | #16 DONE 0.2s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #17 [runtime 5/5] COPY --from=builder /srv/app /srv/app
+[CI/Build, smoke test and scan image]   | #17 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #18 exporting to oci image format
+[CI/Build, smoke test and scan image]   | #18 exporting layers
+[CI/Build, smoke test and scan image]   | #18 exporting layers 0.4s done
+[CI/Build, smoke test and scan image]   | #18 exporting manifest sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85 done
+[CI/Build, smoke test and scan image]   | #18 exporting config sha256:d0d38a2f71f4cbee641e7568109a9191332889c244a4ece66a2c7bea76e0f80a done
+[CI/Build, smoke test and scan image]   | #18 sending tarball
+[CI/Build, smoke test and scan image]   | #18 sending tarball 0.7s done
+[CI/Build, smoke test and scan image]   | #18 DONE 1.1s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #19 importing to docker
+[CI/Build, smoke test and scan image]   | #19 DONE 0.0s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #20 exporting to GitHub Actions Cache
+[CI/Build, smoke test and scan image]   | #20 preparing build cache for export 0.0s done
+[CI/Build, smoke test and scan image]   | #20 sending cache export 0.0s done
+[CI/Build, smoke test and scan image]   | #20 writing layer sha256:397ba7159646263a3b9f87225b193df130e3de26f994cc41c5cc8321398094a6 done
+[CI/Build, smoke test and scan image]   | #20 writing layer sha256:3f056253509b8bdb2b670b041810dae85caaa0af2256e42b31a60348c32f8730 done
+[CI/Build, smoke test and scan image]   | #20 writing layer sha256:5f9ea27d2c51fb39d91ad3754f71923b8c26fd207bc7748586363a03b94b8b4a 0.0s done
+[CI/Build, smoke test and scan image]   | #20 DONE 0.1s
+[CI/Build, smoke test and scan image]   | 
+[CI/Build, smoke test and scan image]   | #21 resolving provenance for metadata file
+[CI/Build, smoke test and scan image]   | #21 DONE 0.0s
+[CI/Build, smoke test and scan image]   ❓  ::group::ImageID
+[CI/Build, smoke test and scan image]   | sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Digest
+[CI/Build, smoke test and scan image]   | sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Metadata
+[CI/Build, smoke test and scan image]   ⚙  ::stop-commands::63acc0c7-9c2d-4ff6-9297-19064d3cba26
+[CI/Build, smoke test and scan image]   | {
+[CI/Build, smoke test and scan image]   |   "buildx.build.provenance": {
+[CI/Build, smoke test and scan image]   |     "builder": {
+[CI/Build, smoke test and scan image]   |       "id": ""
+[CI/Build, smoke test and scan image]   |     },
+[CI/Build, smoke test and scan image]   |     "buildType": "https://mobyproject.org/buildkit@v1",
+[CI/Build, smoke test and scan image]   |     "materials": [
+[CI/Build, smoke test and scan image]   |       {
+[CI/Build, smoke test and scan image]   |         "uri": "pkg:docker/docker/dockerfile@1",
+[CI/Build, smoke test and scan image]   |         "digest": {
+[CI/Build, smoke test and scan image]   |           "sha256": "4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e"
+[CI/Build, smoke test and scan image]   |         }
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       {
+[CI/Build, smoke test and scan image]   |         "uri": "pkg:docker/python@3.12-slim?digest=sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1&platform=linux%2Famd64",
+[CI/Build, smoke test and scan image]   |         "digest": {
+[CI/Build, smoke test and scan image]   |           "sha256": "a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1"
+[CI/Build, smoke test and scan image]   |         }
+[CI/Build, smoke test and scan image]   |       }
+[CI/Build, smoke test and scan image]   |     ],
+[CI/Build, smoke test and scan image]   |     "invocation": {
+[CI/Build, smoke test and scan image]   |       "configSource": {
+[CI/Build, smoke test and scan image]   |         "entryPoint": "Dockerfile"
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       "parameters": {
+[CI/Build, smoke test and scan image]   |         "frontend": "gateway.v0",
+[CI/Build, smoke test and scan image]   |         "args": {
+[CI/Build, smoke test and scan image]   |           "build-arg:APP_VERSION": "0.0.0-8a0c23c",
+[CI/Build, smoke test and scan image]   |           "cmdline": "docker/dockerfile:1",
+[CI/Build, smoke test and scan image]   |           "source": "docker/dockerfile:1"
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         "locals": [
+[CI/Build, smoke test and scan image]   |           {
+[CI/Build, smoke test and scan image]   |             "name": "context"
+[CI/Build, smoke test and scan image]   |           },
+[CI/Build, smoke test and scan image]   |           {
+[CI/Build, smoke test and scan image]   |             "name": "dockerfile"
+[CI/Build, smoke test and scan image]   |           }
+[CI/Build, smoke test and scan image]   |         ],
+[CI/Build, smoke test and scan image]   |         "root": {
+[CI/Build, smoke test and scan image]   |           "configSource": {
+[CI/Build, smoke test and scan image]   |             "path": "Dockerfile"
+[CI/Build, smoke test and scan image]   |           },
+[CI/Build, smoke test and scan image]   |           "request": {
+[CI/Build, smoke test and scan image]   |             "args": {
+[CI/Build, smoke test and scan image]   |               "build-arg:APP_VERSION": "0.0.0-8a0c23c",
+[CI/Build, smoke test and scan image]   |               "vcs:localdir:context": ".",
+[CI/Build, smoke test and scan image]   |               "vcs:localdir:dockerfile": ".",
+[CI/Build, smoke test and scan image]   |               "vcs:revision": "8a0c23cd3b6943794680ede7a91c015cef8a435f"
+[CI/Build, smoke test and scan image]   |             }
+[CI/Build, smoke test and scan image]   |           }
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         "compatibilityVersion": 30
+[CI/Build, smoke test and scan image]   |       },
+[CI/Build, smoke test and scan image]   |       "environment": {
+[CI/Build, smoke test and scan image]   |         "github_event_name": "pull_request",
+[CI/Build, smoke test and scan image]   |         "github_event_payload": {
+[CI/Build, smoke test and scan image]   |           "pull_request": {
+[CI/Build, smoke test and scan image]   |             "base": {
+[CI/Build, smoke test and scan image]   |               "ref": "main"
+[CI/Build, smoke test and scan image]   |             },
+[CI/Build, smoke test and scan image]   |             "head": {
+[CI/Build, smoke test and scan image]   |               "ref": "feature/x",
+[CI/Build, smoke test and scan image]   |               "repo": {
+[CI/Build, smoke test and scan image]   |                 "full_name": "contributor/container-cicd-lab"
+[CI/Build, smoke test and scan image]   |               }
+[CI/Build, smoke test and scan image]   |             },
+[CI/Build, smoke test and scan image]   |             "number": 1
+[CI/Build, smoke test and scan image]   |           }
+[CI/Build, smoke test and scan image]   |         },
+[CI/Build, smoke test and scan image]   |         "platform": "linux/amd64"
+[CI/Build, smoke test and scan image]   |       }
+[CI/Build, smoke test and scan image]   |     }
+[CI/Build, smoke test and scan image]   |   },
+[CI/Build, smoke test and scan image]   |   "buildx.build.ref": "builder-95369343-cad5-4fc7-813d-afb1f3659b53/builder-95369343-cad5-4fc7-813d-afb1f3659b530/xm6xzkc9cv8t58lm00k36d8x4",
+[CI/Build, smoke test and scan image]   |   "containerimage.descriptor": {
+[CI/Build, smoke test and scan image]   |     "mediaType": "application/vnd.oci.image.manifest.v1+json",
+[CI/Build, smoke test and scan image]   |     "digest": "sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85",
+[CI/Build, smoke test and scan image]   |     "size": 1813,
+[CI/Build, smoke test and scan image]   |     "annotations": {
+[CI/Build, smoke test and scan image]   |       "org.opencontainers.image.created": "2026-10-10T14:43:10Z"
+[CI/Build, smoke test and scan image]   |     },
+[CI/Build, smoke test and scan image]   |     "platform": {
+[CI/Build, smoke test and scan image]   |       "architecture": "amd64",
+[CI/Build, smoke test and scan image]   |       "os": "linux"
+[CI/Build, smoke test and scan image]   |     }
+[CI/Build, smoke test and scan image]   |   },
+[CI/Build, smoke test and scan image]   |   "containerimage.digest": "sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85",
+[CI/Build, smoke test and scan image]   |   "image.name": "docker.io/library/pulse-api:ci"
+[CI/Build, smoke test and scan image]   | }
+[CI/Build, smoke test and scan image]   ⚙  ::63acc0c7-9c2d-4ff6-9297-19064d3cba26::
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Reference
+[CI/Build, smoke test and scan image]   | builder-95369343-cad5-4fc7-813d-afb1f3659b53/builder-95369343-cad5-4fc7-813d-afb1f3659b530/xm6xzkc9cv8t58lm00k36d8x4
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Check build summary support
+[CI/Build, smoke test and scan image]   | Build summary supported!
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ✅  Success - Main Build image [48.82258538s]
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: imageid=sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: digest=sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: metadata={
+  "buildx.build.provenance": {
+    "builder": {
+      "id": ""
+    },
+    "buildType": "https://mobyproject.org/buildkit@v1",
+    "materials": [
+      {
+        "uri": "pkg:docker/docker/dockerfile@1",
+        "digest": {
+          "sha256": "4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e"
+        }
+      },
+      {
+        "uri": "pkg:docker/python@3.12-slim?digest=sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1&platform=linux%2Famd64",
+        "digest": {
+          "sha256": "a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1"
+        }
+      }
+    ],
+    "invocation": {
+      "configSource": {
+        "entryPoint": "Dockerfile"
+      },
+      "parameters": {
+        "frontend": "gateway.v0",
+        "args": {
+          "build-arg:APP_VERSION": "0.0.0-8a0c23c",
+          "cmdline": "docker/dockerfile:1",
+          "source": "docker/dockerfile:1"
+        },
+        "locals": [
+          {
+            "name": "context"
+          },
+          {
+            "name": "dockerfile"
+          }
+        ],
+        "root": {
+          "configSource": {
+            "path": "Dockerfile"
+          },
+          "request": {
+            "args": {
+              "build-arg:APP_VERSION": "0.0.0-8a0c23c",
+              "vcs:localdir:context": ".",
+              "vcs:localdir:dockerfile": ".",
+              "vcs:revision": "8a0c23cd3b6943794680ede7a91c015cef8a435f"
+            }
+          }
+        },
+        "compatibilityVersion": 30
+      },
+      "environment": {
+        "github_event_name": "pull_request",
+        "github_event_payload": {
+          "pull_request": {
+            "base": {
+              "ref": "main"
+            },
+            "head": {
+              "ref": "feature/x",
+              "repo": {
+                "full_name": "contributor/container-cicd-lab"
+              }
+            },
+            "number": 1
+          }
+        },
+        "platform": "linux/amd64"
+      }
+    }
+  },
+  "buildx.build.ref": "builder-95369343-cad5-4fc7-813d-afb1f3659b53/builder-95369343-cad5-4fc7-813d-afb1f3659b530/xm6xzkc9cv8t58lm00k36d8x4",
+  "containerimage.descriptor": {
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "digest": "sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85",
+    "size": 1813,
+    "annotations": {
+      "org.opencontainers.image.created": "2026-10-10T14:43:10Z"
+    },
+    "platform": {
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  },
+  "containerimage.digest": "sha256:e1bac4563671910db226164c473f834186d7a01da4d4410cf8e1c9c61feb5b85",
+  "image.name": "docker.io/library/pulse-api:ci"
+}
+[CI/Build, smoke test and scan image] ⭐ Run Main Smoke test (container must start healthy and serve)
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[CI/Build, smoke test and scan image]   | [smoke] starting pulse-api:ci as smoke-623-24649
+[CI/Build, smoke test and scan image]   | [smoke] healthy; probing http://127.0.0.1:32770
+[CI/Build, smoke test and scan image]   | [smoke] GET /health -> 200
+[CI/Build, smoke test and scan image]   | [smoke] GET /ready -> 200
+[CI/Build, smoke test and scan image]   | [smoke] GET /api/v1/primes/10 -> 200
+[CI/Build, smoke test and scan image]   | [smoke] GET /api/v1/primes/-1 -> 422
+[CI/Build, smoke test and scan image]   | [smoke] metrics exposed
+[CI/Build, smoke test and scan image]   | [smoke] running as uid 10001 (non-root)
+[CI/Build, smoke test and scan image]   | [smoke] PASS
+[CI/Build, smoke test and scan image]   ✅  Success - Main Smoke test (container must start healthy and serve) [7.04245245s]
+[CI/Build, smoke test and scan image] ⭐ Run Main Broken startup must be detected
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/5] user= workdir=
+[CI/Build, smoke test and scan image]   | [smoke] starting pulse-api:ci as smoke-825-916
+[CI/Build, smoke test and scan image]   | [smoke] FAIL: container stopped during startup
+[CI/Build, smoke test and scan image]   | [smoke] container state: exited exit=1 health=unhealthy
+[CI/Build, smoke test and scan image]   | [smoke] last container logs:
+[CI/Build, smoke test and scan image]   |       File "/opt/venv/lib/python3.12/site-packages/uvicorn/main.py", line 632, in run
+[CI/Build, smoke test and scan image]   |         server.run()
+[CI/Build, smoke test and scan image]   |       File "/opt/venv/lib/python3.12/site-packages/uvicorn/server.py", line 86, in run
+[CI/Build, smoke test and scan image]   |         return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+[CI/Build, smoke test and scan image]   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+[CI/Build, smoke test and scan image]   |         return runner.run(main)
+[CI/Build, smoke test and scan image]   |                ^^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+[CI/Build, smoke test and scan image]   |         return self._loop.run_until_complete(task)
+[CI/Build, smoke test and scan image]   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+[CI/Build, smoke test and scan image]   |         return future.result()
+[CI/Build, smoke test and scan image]   |                ^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/opt/venv/lib/python3.12/site-packages/uvicorn/server.py", line 90, in serve
+[CI/Build, smoke test and scan image]   |         await self._serve(sockets)
+[CI/Build, smoke test and scan image]   |       File "/opt/venv/lib/python3.12/site-packages/uvicorn/server.py", line 97, in _serve
+[CI/Build, smoke test and scan image]   |         config.load()
+[CI/Build, smoke test and scan image]   |       File "/opt/venv/lib/python3.12/site-packages/uvicorn/config.py", line 514, in load
+[CI/Build, smoke test and scan image]   |         self.loaded_app = self.loaded_app()
+[CI/Build, smoke test and scan image]   |                           ^^^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/srv/app/main.py", line 74, in create_app
+[CI/Build, smoke test and scan image]   |         settings = settings or Settings.from_env()
+[CI/Build, smoke test and scan image]   |                                ^^^^^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/srv/app/config.py", line 78, in from_env
+[CI/Build, smoke test and scan image]   |         max_prime_limit=_parse_int(env, "MAX_PRIME_LIMIT", 1_000_000, 1, 10_000_000),
+[CI/Build, smoke test and scan image]   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[CI/Build, smoke test and scan image]   |       File "/srv/app/config.py", line 42, in _parse_int
+[CI/Build, smoke test and scan image]   |         raise ConfigError(f"{key} must be an integer, got {raw!r}") from None
+[CI/Build, smoke test and scan image]   |     app.config.ConfigError: MAX_PRIME_LIMIT must be an integer, got 'not-a-number'
+[CI/Build, smoke test and scan image]   | Broken configuration was detected as expected.
+[CI/Build, smoke test and scan image]   ✅  Success - Main Broken startup must be detected [2.47360124s]
+[CI/Build, smoke test and scan image] ⭐ Run Main Vulnerability scan (fail on fixable HIGH/CRITICAL)
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/aquasecurity-trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25/ dst=/var/run/act/actions/aquasecurity-trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25/
+[CI/Build, smoke test and scan image] ⭐ Run Main Install Trivy
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/aquasecurity-setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514/ dst=/var/run/act/actions/aquasecurity-setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514/
+[CI/Build, smoke test and scan image] ⭐ Run Main Binary dir
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/6-composite-0-composite-binary-dir.sh] user= workdir=
+[CI/Build, smoke test and scan image]   ✅  Success - Main Binary dir [50.523143ms]
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: dir=/root/.local/bin/trivy-bin
+[CI/Build, smoke test and scan image] ⭐ Run Main Restore Trivy binary from cache
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/actions-cache-restore@9255dc7a253b0ccc959486e2bca901246202afeb/ dst=/var/run/act/actions/actions-cache-restore@9255dc7a253b0ccc959486e2bca901246202afeb/
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-cache-restore@9255dc7a253b0ccc959486e2bca901246202afeb/dist/restore-only/index.js] user= workdir=
+[CI/Build, smoke test and scan image]   | Cache not found for input keys: trivy-binary-v0.74.0-Linux-X64
+[CI/Build, smoke test and scan image]   ✅  Success - Main Restore Trivy binary from cache [1.676954372s]
+[CI/Build, smoke test and scan image]   ⚙  ::set-output:: cache-primary-key=trivy-binary-v0.74.0-Linux-X64
+[CI/Build, smoke test and scan image] ⭐ Run Main Checkout install script
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/actions-checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8/ dst=/var/run/act/actions/actions-checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8/
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8/dist/index.js] user= workdir=
+[CI/Build, smoke test and scan image]   ❗  ::error::Input required and not supplied: token
+[CI/Build, smoke test and scan image]   ❌  Failure - Main Checkout install script [998.288711ms]
+[CI/Build, smoke test and scan image] exitcode '1': failure
+[CI/Build, smoke test and scan image]   ❌  Failure - Main Install Trivy [2.957512808s]
+[CI/Build, smoke test and scan image] exitcode '1': failure
+[CI/Build, smoke test and scan image] ⭐ Run Main Remove Trivy Envs file
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/6-composite-7.sh] user= workdir=
+[CI/Build, smoke test and scan image]   ✅  Success - Main Remove Trivy Envs file [53.566853ms]
+[CI/Build, smoke test and scan image]   ❌  Failure - Main Vulnerability scan (fail on fixable HIGH/CRITICAL) [3.484986619s]
+[CI/Build, smoke test and scan image] exitcode '1': failure
+[CI/Build, smoke test and scan image] ⭐ Run Post Vulnerability scan (fail on fixable HIGH/CRITICAL)
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/aquasecurity-trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25/ dst=/var/run/act/actions/aquasecurity-trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25/
+[CI/Build, smoke test and scan image] ⭐ Run Post Install Trivy
+[CI/Build, smoke test and scan image]   🐳  docker cp src=/root/.cache/act/aquasecurity-setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514/ dst=/var/run/act/actions/aquasecurity-setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514/
+[CI/Build, smoke test and scan image] ⭐ Run Post Checkout install script
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8/dist/index.js] user= workdir=
+[CI/Build, smoke test and scan image]   ✅  Success - Post Checkout install script [97.729451ms]
+[CI/Build, smoke test and scan image]   ✅  Success - Post Install Trivy [149.277908ms]
+[CI/Build, smoke test and scan image]   ✅  Success - Post Vulnerability scan (fail on fixable HIGH/CRITICAL) [338.932462ms]
+[CI/Build, smoke test and scan image] ⭐ Run Post Build image
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/docker-build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc/dist/index.cjs] user= workdir=
+[CI/Build, smoke test and scan image]   ❓  ::group::Generating build summary
+[CI/Build, smoke test and scan image]   | exporting build record to /tmp/docker-actions-toolkit-p36eWh/export
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx history export --builder builder-95369343-cad5-4fc7-813d-afb1f3659b53 --output /tmp/docker-actions-toolkit-p36eWh/export/nektos~act~XM6XZK.dockerbuild xm6xzkc9cv8t58lm00k36d8x4 --finalize
+[CI/Build, smoke test and scan image]   | Build record written to /tmp/docker-actions-toolkit-p36eWh/export/nektos~act~XM6XZK.dockerbuild (43.65 KB)
+[CI/Build, smoke test and scan image]   | Uploading nektos~act~XM6XZK.dockerbuild as an artifact
+[CI/Build, smoke test and scan image]   | Artifact name is valid!
+[CI/Build, smoke test and scan image]   | Root directory input is valid!
+time="2026-10-10T20:43:25+06:00" level=error msg="Error decode request body: proto:\u00a0(line 1:117): unknown field \"mime_type\""
+[CI/Build, smoke test and scan image]   | Attempt 1 of 5 failed with error: Unexpected end of JSON input. Retrying request in 3000 ms...
+time="2026-10-10T20:43:28+06:00" level=error msg="Error decode request body: proto:\u00a0(line 1:117): unknown field \"mime_type\""
+[CI/Build, smoke test and scan image]   | Attempt 2 of 5 failed with error: Unexpected end of JSON input. Retrying request in 6320 ms...
+time="2026-10-10T20:43:34+06:00" level=error msg="Error decode request body: proto:\u00a0(line 1:117): unknown field \"mime_type\""
+[CI/Build, smoke test and scan image]   | Attempt 3 of 5 failed with error: Unexpected end of JSON input. Retrying request in 6876 ms...
+time="2026-10-10T20:43:40+06:00" level=error msg="Error decode request body: proto:\u00a0(line 1:117): unknown field \"mime_type\""
+[CI/Build, smoke test and scan image]   | Attempt 4 of 5 failed with error: Unexpected end of JSON input. Retrying request in 14882 ms...
+time="2026-10-10T20:43:55+06:00" level=error msg="Error decode request body: proto:\u00a0(line 1:117): unknown field \"mime_type\""
+[CI/Build, smoke test and scan image]   🚧  ::warning::Failed to CreateArtifact: Failed to make request after 5 attempts: Unexpected end of JSON input
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Removing temp folder /tmp/docker-actions-toolkit-iuaNlK
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Post cache
+[CI/Build, smoke test and scan image]   | State not set
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ✅  Success - Post Build image [31.768406677s]
+[CI/Build, smoke test and scan image] ⭐ Run Post docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069
+[CI/Build, smoke test and scan image]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/docker-setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069/dist/index.cjs] user= workdir=
+[CI/Build, smoke test and scan image]   ❓  ::group::Removing builder
+[CI/Build, smoke test and scan image]   | [command]/usr/bin/docker buildx rm builder-95369343-cad5-4fc7-813d-afb1f3659b53
+[CI/Build, smoke test and scan image]   | builder-95369343-cad5-4fc7-813d-afb1f3659b53 removed
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Cleaning up certificates
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ❓  ::group::Post cache
+[CI/Build, smoke test and scan image]   | State not set
+[CI/Build, smoke test and scan image]   ❓  ::endgroup::
+[CI/Build, smoke test and scan image]   ✅  Success - Post docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 [927.114915ms]
+[CI/Build, smoke test and scan image] ⭐ Run Complete job
+[CI/Build, smoke test and scan image]   ✅  Success - Complete job
+[CI/Build, smoke test and scan image] 🏁  Job failed
+Error: Job 'Build, smoke test and scan image' failed
+act exit=1

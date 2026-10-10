@@ -1,0 +1,387 @@
+# act act version 0.2.89 | event=pull_request | 2026-10-10T14:30:46Z | local run on WSL Docker, not GitHub-hosted
+time="2026-10-10T20:30:46+06:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+time="2026-10-10T20:30:46+06:00" level=info msg="Start server on http://172.26.215.179:34567"
+[CI/Lint and unit tests] ⭐ Run Set up job
+[CI/Lint and unit tests] 🚀  Start image=catthehacker/ubuntu:act-24.04
+[CI/Lint and unit tests]   🐳  docker pull image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 username= forcePull=true
+[CI/Lint and unit tests]   🐳  docker create image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Lint and unit tests]   🐳  docker run image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[CI/Lint and unit tests]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[CI/Lint and unit tests]   ✅  Success - Set up job
+[CI/Lint and unit tests]   ☁  git clone 'https://github.com/actions/setup-python' # ref=5fda3b95a4ea91299a34e894583c3862153e4b97
+[CI/Lint and unit tests]   ☁  git clone 'https://github.com/hadolint/hadolint-action' # ref=06be81baf89a55ffd0e24b8f04a4185738dd3387
+[CI/Lint and unit tests] ⭐ Run Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+[CI/Lint and unit tests]   🐳  docker cp src=/root/selise-work/act-container-cicd-lab/. dst=/root/selise-work/act-container-cicd-lab
+[CI/Lint and unit tests]   ✅  Success - Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 [42.530123ms]
+[CI/Lint and unit tests] ⭐ Run Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+[CI/Lint and unit tests]   🐳  docker cp src=/root/.cache/act/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/ dst=/var/run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/
+[CI/Lint and unit tests]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/dist/setup/index.js] user= workdir=
+[CI/Lint and unit tests]   ❓  ::group::Installed versions
+[CI/Lint and unit tests]   | Successfully set up CPython (3.12.15)
+[CI/Lint and unit tests]   ❓  ::endgroup::
+[CI/Lint and unit tests]   | [command]/opt/hostedtoolcache/Python/3.12.15/x64/bin/pip cache dir
+[CI/Lint and unit tests]   | /root/.cache/pip
+[CI/Lint and unit tests]   ⚙  ***
+[CI/Lint and unit tests]   | Cache Size: ~5 MB (5053060 B)
+[CI/Lint and unit tests]   | [command]/usr/bin/tar -xf /tmp/5a66d180-da18-412f-a434-811056a81107/cache.tzst -P -C /root/selise-work/act-container-cicd-lab --use-compress-program unzstd
+[CI/Lint and unit tests]   | Cache restored successfully
+[CI/Lint and unit tests]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.12.15-pip-0dd53aea395ff8540048e68650692d5c31cfffd38cded451904adc519c57b9e8
+[CI/Lint and unit tests]   ❓ add-matcher /run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/.github/python.json
+[CI/Lint and unit tests]   ✅  Success - Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 [5.067911114s]
+[CI/Lint and unit tests]   ⚙  ::set-env:: pythonLocation=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests]   ⚙  ::set-env:: PKG_CONFIG_PATH=/opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+[CI/Lint and unit tests]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests]   ⚙  ::set-env:: Python2_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests]   ⚙  ::set-env:: Python3_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests]   ⚙  ::set-env:: LD_LIBRARY_PATH=/opt/hostedtoolcache/Python/3.12.15/x64/lib
+[CI/Lint and unit tests]   ⚙  ::set-output:: python-path=/opt/hostedtoolcache/Python/3.12.15/x64/bin/python
+[CI/Lint and unit tests]   ⚙  ::set-output:: cache-hit=false
+[CI/Lint and unit tests]   ⚙  ::set-output:: python-version=3.12.15
+[CI/Lint and unit tests]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.15/x64
+[CI/Lint and unit tests]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.15/x64/bin
+[CI/Lint and unit tests] ⭐ Run Main Install pinned dependencies
+[CI/Lint and unit tests]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[CI/Lint and unit tests]   | Requirement already satisfied: annotated-doc==0.0.5 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 2)) (0.0.5)
+[CI/Lint and unit tests]   | Requirement already satisfied: annotated-types==0.8.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 3)) (0.8.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: anyio==4.15.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 4)) (4.15.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: click==8.5.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 5)) (8.5.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: fastapi==0.143.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 6)) (0.143.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: h11==0.16.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 7)) (0.16.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: idna==3.20 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 8)) (3.20)
+[CI/Lint and unit tests]   | Requirement already satisfied: opentelemetry-api==1.45.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 9)) (1.45.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: prometheus_client==0.26.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 10)) (0.26.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: pydantic==2.14.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 11)) (2.14.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: pydantic_core==2.50.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 12)) (2.50.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: starlette==1.7.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 13)) (1.7.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: typing-inspection==0.4.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 14)) (0.4.4)
+[CI/Lint and unit tests]   | Requirement already satisfied: typing_extensions==4.16.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 15)) (4.16.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: uvicorn==0.54.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r /root/selise-work/act-container-cicd-lab/requirements.txt (line 16)) (0.54.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: boolean.py==5.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 3)) (5.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: CacheControl==0.14.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 4)) (0.14.4)
+[CI/Lint and unit tests]   | Requirement already satisfied: certifi==2026.7.22 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 5)) (2026.7.22)
+[CI/Lint and unit tests]   | Requirement already satisfied: charset-normalizer==3.5.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 6)) (3.5.2)
+[CI/Lint and unit tests]   | Requirement already satisfied: coverage==7.16.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 7)) (7.16.2)
+[CI/Lint and unit tests]   | Requirement already satisfied: cyclonedx-python-lib==11.12.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 8)) (11.12.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: defusedxml==0.7.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 9)) (0.7.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: filelock==4.1.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 10)) (4.1.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: httpcore2==2.13.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 11)) (2.13.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: httpx2==2.13.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 12)) (2.13.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: iniconfig==2.3.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 13)) (2.3.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: license-expression==30.4.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 14)) (30.4.4)
+[CI/Lint and unit tests]   | Requirement already satisfied: markdown-it-py==4.2.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 15)) (4.2.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: mdurl==0.1.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 16)) (0.1.2)
+[CI/Lint and unit tests]   | Requirement already satisfied: msgpack==1.2.3 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 17)) (1.2.3)
+[CI/Lint and unit tests]   | Requirement already satisfied: packageurl-python==0.17.6 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 18)) (0.17.6)
+[CI/Lint and unit tests]   | Requirement already satisfied: packaging==26.3 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 19)) (26.3)
+[CI/Lint and unit tests]   | Requirement already satisfied: pip-requirements-parser==32.0.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 20)) (32.0.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: pip_api==0.0.35 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 21)) (0.0.35)
+[CI/Lint and unit tests]   | Requirement already satisfied: pip_audit==2.10.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 22)) (2.10.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: platformdirs==4.12.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 23)) (4.12.4)
+[CI/Lint and unit tests]   | Requirement already satisfied: pluggy==1.6.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 24)) (1.6.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: py-serializable==2.1.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 25)) (2.1.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: Pygments==2.21.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 26)) (2.21.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: pyparsing==3.3.3 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 27)) (3.3.3)
+[CI/Lint and unit tests]   | Requirement already satisfied: pytest==9.1.1 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 28)) (9.1.1)
+[CI/Lint and unit tests]   | Requirement already satisfied: pytest-cov==7.1.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 29)) (7.1.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: requests==2.34.2 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 30)) (2.34.2)
+[CI/Lint and unit tests]   | Requirement already satisfied: rich==15.0.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 31)) (15.0.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: ruff==0.17.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 32)) (0.17.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: sortedcontainers==2.4.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 33)) (2.4.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: tomli==2.5.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 34)) (2.5.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: tomli_w==1.2.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 35)) (1.2.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: truststore==0.10.4 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 36)) (0.10.4)
+[CI/Lint and unit tests]   | Requirement already satisfied: urllib3==2.8.0 in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 37)) (2.8.0)
+[CI/Lint and unit tests]   | Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from pip_api==0.0.35->-r requirements-dev.txt (line 21)) (26.2.1)
+[CI/Lint and unit tests]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[CI/Lint and unit tests]   ✅  Success - Main Install pinned dependencies [2.057507706s]
+[CI/Lint and unit tests] ⭐ Run Main Ruff lint
+[CI/Lint and unit tests]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[CI/Lint and unit tests]   ✅  Success - Main Ruff lint [550.605924ms]
+[CI/Lint and unit tests] ⭐ Run Main Ruff format check
+[CI/Lint and unit tests]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[CI/Lint and unit tests]   | 11 files already formatted
+[CI/Lint and unit tests]   ✅  Success - Main Ruff format check [276.694052ms]
+[CI/Lint and unit tests] ⭐ Run Main Unit tests with coverage gate (90%)
+[CI/Lint and unit tests]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/5] user= workdir=
+[CI/Lint and unit tests]   | ..............FFFF....F..............                                    [100%]
+[CI/Lint and unit tests]   | =================================== FAILURES ===================================
+[CI/Lint and unit tests]   | _________________________ test_primes_endpoint[2-1-2] __________________________
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | client = <starlette.testclient.TestClient object at 0x7abe11ec89b0>, n = 2
+[CI/Lint and unit tests]   | count = 1, largest = 2
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   |     @pytest.mark.parametrize(
+[CI/Lint and unit tests]   |         ("n", "count", "largest"),
+[CI/Lint and unit tests]   |         [(0, 0, None), (1, 0, None), (2, 1, 2), (10, 4, 7), (100, 25, 97), (1000, 168, 997)],
+[CI/Lint and unit tests]   |     )
+[CI/Lint and unit tests]   |     def test_primes_endpoint(client: TestClient, n: int, count: int, largest: int | None) -> None:
+[CI/Lint and unit tests]   |         response = client.get(f"/api/v1/primes/{n}")
+[CI/Lint and unit tests]   |         assert response.status_code == 200
+[CI/Lint and unit tests]   | >       assert response.json() == {"n": n, "prime_count": count, "largest_prime": largest}
+[CI/Lint and unit tests]   | E       AssertionError: assert {'n': 2, 'pri...est_prime': 2} == {'n': 2, 'pri...est_prime': 2}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   | E         Differing items:
+[CI/Lint and unit tests]   | E         {'prime_count': 2} != {'prime_count': 1}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Full diff:
+[CI/Lint and unit tests]   | E           {
+[CI/Lint and unit tests]   | E               'n': 2,
+[CI/Lint and unit tests]   | E         -     'prime_count': 1,
+[CI/Lint and unit tests]   | E         ?                    ^
+[CI/Lint and unit tests]   | E         +     'prime_count': 2,
+[CI/Lint and unit tests]   | E         ?                    ^
+[CI/Lint and unit tests]   | E               'largest_prime': 2,
+[CI/Lint and unit tests]   | E           }
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | tests/test_endpoints.py:44: AssertionError
+[CI/Lint and unit tests]   | ---------------------------- Captured stdout setup -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.899+00:00", "level": "INFO", "logger": "pulse", "msg": "startup complete", "version": "1.2.3-test", "environment": "test"}
+[CI/Lint and unit tests]   | ----------------------------- Captured stdout call -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.907+00:00", "level": "INFO", "logger": "pulse", "msg": "request", "request_id": "f5221eb48d014be09e5c63c182fa2c49", "method": "GET", "path": "/api/v1/primes/2", "route": "/api/v1/primes/{n}", "status": 200, "duration_ms": 6.15, "client": "testclient"}
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.908+00:00", "level": "INFO", "logger": "httpx2", "msg": "HTTP Request: GET http://testserver/api/v1/primes/2 \"HTTP/1.1 200 OK\""}
+[CI/Lint and unit tests]   | ------------------------------ Captured log call -------------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:123 request
+[CI/Lint and unit tests]   | INFO     httpx2:_client.py:1085 HTTP Request: GET http://testserver/api/v1/primes/2 "HTTP/1.1 200 OK"
+[CI/Lint and unit tests]   | --------------------------- Captured stdout teardown ---------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.931+00:00", "level": "INFO", "logger": "pulse", "msg": "shutdown: readiness withdrawn"}
+[CI/Lint and unit tests]   | ---------------------------- Captured log teardown -----------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:90 shutdown: readiness withdrawn
+[CI/Lint and unit tests]   | _________________________ test_primes_endpoint[10-4-7] _________________________
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | client = <starlette.testclient.TestClient object at 0x7abe11eb7d10>, n = 10
+[CI/Lint and unit tests]   | count = 4, largest = 7
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   |     @pytest.mark.parametrize(
+[CI/Lint and unit tests]   |         ("n", "count", "largest"),
+[CI/Lint and unit tests]   |         [(0, 0, None), (1, 0, None), (2, 1, 2), (10, 4, 7), (100, 25, 97), (1000, 168, 997)],
+[CI/Lint and unit tests]   |     )
+[CI/Lint and unit tests]   |     def test_primes_endpoint(client: TestClient, n: int, count: int, largest: int | None) -> None:
+[CI/Lint and unit tests]   |         response = client.get(f"/api/v1/primes/{n}")
+[CI/Lint and unit tests]   |         assert response.status_code == 200
+[CI/Lint and unit tests]   | >       assert response.json() == {"n": n, "prime_count": count, "largest_prime": largest}
+[CI/Lint and unit tests]   | E       AssertionError: assert {'n': 10, 'pr...est_prime': 7} == {'n': 10, 'pr...est_prime': 7}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   | E         Differing items:
+[CI/Lint and unit tests]   | E         {'prime_count': 5} != {'prime_count': 4}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Full diff:
+[CI/Lint and unit tests]   | E           {
+[CI/Lint and unit tests]   | E               'n': 10,
+[CI/Lint and unit tests]   | E         -     'prime_count': 4,
+[CI/Lint and unit tests]   | E         ?                    ^
+[CI/Lint and unit tests]   | E         +     'prime_count': 5,
+[CI/Lint and unit tests]   | E         ?                    ^
+[CI/Lint and unit tests]   | E               'largest_prime': 7,
+[CI/Lint and unit tests]   | E           }
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | tests/test_endpoints.py:44: AssertionError
+[CI/Lint and unit tests]   | ---------------------------- Captured stdout setup -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.937+00:00", "level": "INFO", "logger": "pulse", "msg": "startup complete", "version": "1.2.3-test", "environment": "test"}
+[CI/Lint and unit tests]   | ----------------------------- Captured stdout call -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.943+00:00", "level": "INFO", "logger": "pulse", "msg": "request", "request_id": "5144c4f72c2940358b42244de7376b1c", "method": "GET", "path": "/api/v1/primes/10", "route": "/api/v1/primes/{n}", "status": 200, "duration_ms": 3.64, "client": "testclient"}
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.944+00:00", "level": "INFO", "logger": "httpx2", "msg": "HTTP Request: GET http://testserver/api/v1/primes/10 \"HTTP/1.1 200 OK\""}
+[CI/Lint and unit tests]   | ------------------------------ Captured log call -------------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:123 request
+[CI/Lint and unit tests]   | INFO     httpx2:_client.py:1085 HTTP Request: GET http://testserver/api/v1/primes/10 "HTTP/1.1 200 OK"
+[CI/Lint and unit tests]   | --------------------------- Captured stdout teardown ---------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.948+00:00", "level": "INFO", "logger": "pulse", "msg": "shutdown: readiness withdrawn"}
+[CI/Lint and unit tests]   | ---------------------------- Captured log teardown -----------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:90 shutdown: readiness withdrawn
+[CI/Lint and unit tests]   | _______________________ test_primes_endpoint[100-25-97] ________________________
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | client = <starlette.testclient.TestClient object at 0x7abe11eb3410>, n = 100
+[CI/Lint and unit tests]   | count = 25, largest = 97
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   |     @pytest.mark.parametrize(
+[CI/Lint and unit tests]   |         ("n", "count", "largest"),
+[CI/Lint and unit tests]   |         [(0, 0, None), (1, 0, None), (2, 1, 2), (10, 4, 7), (100, 25, 97), (1000, 168, 997)],
+[CI/Lint and unit tests]   |     )
+[CI/Lint and unit tests]   |     def test_primes_endpoint(client: TestClient, n: int, count: int, largest: int | None) -> None:
+[CI/Lint and unit tests]   |         response = client.get(f"/api/v1/primes/{n}")
+[CI/Lint and unit tests]   |         assert response.status_code == 200
+[CI/Lint and unit tests]   | >       assert response.json() == {"n": n, "prime_count": count, "largest_prime": largest}
+[CI/Lint and unit tests]   | E       AssertionError: assert {'n': 100, 'p...st_prime': 97} == {'n': 100, 'p...st_prime': 97}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   | E         Differing items:
+[CI/Lint and unit tests]   | E         {'prime_count': 26} != {'prime_count': 25}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Full diff:
+[CI/Lint and unit tests]   | E           {
+[CI/Lint and unit tests]   | E               'n': 100,
+[CI/Lint and unit tests]   | E         -     'prime_count': 25,
+[CI/Lint and unit tests]   | E         ?                     ^
+[CI/Lint and unit tests]   | E         +     'prime_count': 26,
+[CI/Lint and unit tests]   | E         ?                     ^
+[CI/Lint and unit tests]   | E               'largest_prime': 97,
+[CI/Lint and unit tests]   | E           }
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | tests/test_endpoints.py:44: AssertionError
+[CI/Lint and unit tests]   | ---------------------------- Captured stdout setup -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.953+00:00", "level": "INFO", "logger": "pulse", "msg": "startup complete", "version": "1.2.3-test", "environment": "test"}
+[CI/Lint and unit tests]   | ----------------------------- Captured stdout call -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.958+00:00", "level": "INFO", "logger": "pulse", "msg": "request", "request_id": "55c219c0377940a9a361fb52c49a5f1b", "method": "GET", "path": "/api/v1/primes/100", "route": "/api/v1/primes/{n}", "status": 200, "duration_ms": 3.14, "client": "testclient"}
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.959+00:00", "level": "INFO", "logger": "httpx2", "msg": "HTTP Request: GET http://testserver/api/v1/primes/100 \"HTTP/1.1 200 OK\""}
+[CI/Lint and unit tests]   | ------------------------------ Captured log call -------------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:123 request
+[CI/Lint and unit tests]   | INFO     httpx2:_client.py:1085 HTTP Request: GET http://testserver/api/v1/primes/100 "HTTP/1.1 200 OK"
+[CI/Lint and unit tests]   | --------------------------- Captured stdout teardown ---------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.963+00:00", "level": "INFO", "logger": "pulse", "msg": "shutdown: readiness withdrawn"}
+[CI/Lint and unit tests]   | ---------------------------- Captured log teardown -----------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:90 shutdown: readiness withdrawn
+[CI/Lint and unit tests]   | ______________________ test_primes_endpoint[1000-168-997] ______________________
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | client = <starlette.testclient.TestClient object at 0x7abe11fea090>, n = 1000
+[CI/Lint and unit tests]   | count = 168, largest = 997
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   |     @pytest.mark.parametrize(
+[CI/Lint and unit tests]   |         ("n", "count", "largest"),
+[CI/Lint and unit tests]   |         [(0, 0, None), (1, 0, None), (2, 1, 2), (10, 4, 7), (100, 25, 97), (1000, 168, 997)],
+[CI/Lint and unit tests]   |     )
+[CI/Lint and unit tests]   |     def test_primes_endpoint(client: TestClient, n: int, count: int, largest: int | None) -> None:
+[CI/Lint and unit tests]   |         response = client.get(f"/api/v1/primes/{n}")
+[CI/Lint and unit tests]   |         assert response.status_code == 200
+[CI/Lint and unit tests]   | >       assert response.json() == {"n": n, "prime_count": count, "largest_prime": largest}
+[CI/Lint and unit tests]   | E       AssertionError: assert {'n': 1000, '...t_prime': 997} == {'n': 1000, '...t_prime': 997}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   | E         Differing items:
+[CI/Lint and unit tests]   | E         {'prime_count': 169} != {'prime_count': 168}
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Full diff:
+[CI/Lint and unit tests]   | E           {
+[CI/Lint and unit tests]   | E               'n': 1000,
+[CI/Lint and unit tests]   | E         -     'prime_count': 168,
+[CI/Lint and unit tests]   | E         ?                      ^
+[CI/Lint and unit tests]   | E         +     'prime_count': 169,
+[CI/Lint and unit tests]   | E         ?                      ^
+[CI/Lint and unit tests]   | E               'largest_prime': 997,
+[CI/Lint and unit tests]   | E           }
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | tests/test_endpoints.py:44: AssertionError
+[CI/Lint and unit tests]   | ---------------------------- Captured stdout setup -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.968+00:00", "level": "INFO", "logger": "pulse", "msg": "startup complete", "version": "1.2.3-test", "environment": "test"}
+[CI/Lint and unit tests]   | ----------------------------- Captured stdout call -----------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.974+00:00", "level": "INFO", "logger": "pulse", "msg": "request", "request_id": "72d5a99489b8420a8fec3492b14d0134", "method": "GET", "path": "/api/v1/primes/1000", "route": "/api/v1/primes/{n}", "status": 200, "duration_ms": 3.41, "client": "testclient"}
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.974+00:00", "level": "INFO", "logger": "httpx2", "msg": "HTTP Request: GET http://testserver/api/v1/primes/1000 \"HTTP/1.1 200 OK\""}
+[CI/Lint and unit tests]   | ------------------------------ Captured log call -------------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:123 request
+[CI/Lint and unit tests]   | INFO     httpx2:_client.py:1085 HTTP Request: GET http://testserver/api/v1/primes/1000 "HTTP/1.1 200 OK"
+[CI/Lint and unit tests]   | --------------------------- Captured stdout teardown ---------------------------
+[CI/Lint and unit tests]   | {"ts": "2026-10-10T14:31:02.979+00:00", "level": "INFO", "logger": "pulse", "msg": "shutdown: readiness withdrawn"}
+[CI/Lint and unit tests]   | ---------------------------- Captured log teardown -----------------------------
+[CI/Lint and unit tests]   | INFO     pulse:main.py:90 shutdown: readiness withdrawn
+[CI/Lint and unit tests]   | ____________________ test_count_primes_matches_known_value _____________________
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   |     def test_count_primes_matches_known_value() -> None:
+[CI/Lint and unit tests]   | >       assert count_primes(1_000_000) == (78_498, 999_983)
+[CI/Lint and unit tests]   | E       assert (78499, 999983) == (78498, 999983)
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         At index 0 diff: 78499 != 78498
+[CI/Lint and unit tests]   | E         
+[CI/Lint and unit tests]   | E         Full diff:
+[CI/Lint and unit tests]   | E           (
+[CI/Lint and unit tests]   | E         -     78498,
+[CI/Lint and unit tests]   | E         ?         ^
+[CI/Lint and unit tests]   | E         +     78499,
+[CI/Lint and unit tests]   | E         ?         ^
+[CI/Lint and unit tests]   | E               999983,
+[CI/Lint and unit tests]   | E           )
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | tests/test_endpoints.py:59: AssertionError
+[CI/Lint and unit tests]   | ================================ tests coverage ================================
+[CI/Lint and unit tests]   | _______________ coverage: platform linux, python 3.12.15-final-0 _______________
+[CI/Lint and unit tests]   | 
+[CI/Lint and unit tests]   | Name                   Stmts   Miss Branch BrPart  Cover   Missing
+[CI/Lint and unit tests]   | ------------------------------------------------------------------
+[CI/Lint and unit tests]   | app/__init__.py            0      0      0      0   100%
+[CI/Lint and unit tests]   | app/config.py             52      1     16      1    97%   31
+[CI/Lint and unit tests]   | app/faults.py             50      0      6      0   100%
+[CI/Lint and unit tests]   | app/main.py              102      3     16      0    97%   109-111
+[CI/Lint and unit tests]   | app/observability.py      37      1      4      1    95%   71
+[CI/Lint and unit tests]   | ------------------------------------------------------------------
+[CI/Lint and unit tests]   | TOTAL                    241      5     42      2    98%
+[CI/Lint and unit tests]   | Required test coverage of 90.0% reached. Total coverage: 97.53%
+[CI/Lint and unit tests]   | =========================== short test summary info ============================
+[CI/Lint and unit tests]   | FAILED tests/test_endpoints.py::test_primes_endpoint[2-1-2] - AssertionError: assert {'n': 2, 'pri...est_prime': 2} == {'n': 2, 'pri...est_prime': 2}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   |   Differing items:
+[CI/Lint and unit tests]   |   {'prime_count': 2} != {'prime_count': 1}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Full diff:
+[CI/Lint and unit tests]   |     {
+[CI/Lint and unit tests]   |         'n': 2,
+[CI/Lint and unit tests]   |   -     'prime_count': 1,
+[CI/Lint and unit tests]   |   ?                    ^
+[CI/Lint and unit tests]   |   +     'prime_count': 2,
+[CI/Lint and unit tests]   |   ?                    ^
+[CI/Lint and unit tests]   |         'largest_prime': 2,
+[CI/Lint and unit tests]   |     }
+[CI/Lint and unit tests]   | FAILED tests/test_endpoints.py::test_primes_endpoint[10-4-7] - AssertionError: assert {'n': 10, 'pr...est_prime': 7} == {'n': 10, 'pr...est_prime': 7}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   |   Differing items:
+[CI/Lint and unit tests]   |   {'prime_count': 5} != {'prime_count': 4}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Full diff:
+[CI/Lint and unit tests]   |     {
+[CI/Lint and unit tests]   |         'n': 10,
+[CI/Lint and unit tests]   |   -     'prime_count': 4,
+[CI/Lint and unit tests]   |   ?                    ^
+[CI/Lint and unit tests]   |   +     'prime_count': 5,
+[CI/Lint and unit tests]   |   ?                    ^
+[CI/Lint and unit tests]   |         'largest_prime': 7,
+[CI/Lint and unit tests]   |     }
+[CI/Lint and unit tests]   | FAILED tests/test_endpoints.py::test_primes_endpoint[100-25-97] - AssertionError: assert {'n': 100, 'p...st_prime': 97} == {'n': 100, 'p...st_prime': 97}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   |   Differing items:
+[CI/Lint and unit tests]   |   {'prime_count': 26} != {'prime_count': 25}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Full diff:
+[CI/Lint and unit tests]   |     {
+[CI/Lint and unit tests]   |         'n': 100,
+[CI/Lint and unit tests]   |   -     'prime_count': 25,
+[CI/Lint and unit tests]   |   ?                     ^
+[CI/Lint and unit tests]   |   +     'prime_count': 26,
+[CI/Lint and unit tests]   |   ?                     ^
+[CI/Lint and unit tests]   |         'largest_prime': 97,
+[CI/Lint and unit tests]   |     }
+[CI/Lint and unit tests]   | FAILED tests/test_endpoints.py::test_primes_endpoint[1000-168-997] - AssertionError: assert {'n': 1000, '...t_prime': 997} == {'n': 1000, '...t_prime': 997}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Omitting 2 identical items, use -vv to show
+[CI/Lint and unit tests]   |   Differing items:
+[CI/Lint and unit tests]   |   {'prime_count': 169} != {'prime_count': 168}
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Full diff:
+[CI/Lint and unit tests]   |     {
+[CI/Lint and unit tests]   |         'n': 1000,
+[CI/Lint and unit tests]   |   -     'prime_count': 168,
+[CI/Lint and unit tests]   |   ?                      ^
+[CI/Lint and unit tests]   |   +     'prime_count': 169,
+[CI/Lint and unit tests]   |   ?                      ^
+[CI/Lint and unit tests]   |         'largest_prime': 997,
+[CI/Lint and unit tests]   |     }
+[CI/Lint and unit tests]   | FAILED tests/test_endpoints.py::test_count_primes_matches_known_value - assert (78499, 999983) == (78498, 999983)
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   At index 0 diff: 78499 != 78498
+[CI/Lint and unit tests]   |   
+[CI/Lint and unit tests]   |   Full diff:
+[CI/Lint and unit tests]   |     (
+[CI/Lint and unit tests]   |   -     78498,
+[CI/Lint and unit tests]   |   ?         ^
+[CI/Lint and unit tests]   |   +     78499,
+[CI/Lint and unit tests]   |   ?         ^
+[CI/Lint and unit tests]   |         999983,
+[CI/Lint and unit tests]   |     )
+[CI/Lint and unit tests]   | 5 failed, 32 passed in 0.95s
+[CI/Lint and unit tests]   ❌  Failure - Main Unit tests with coverage gate (90%) [3.675150597s]
+[CI/Lint and unit tests] exitcode '1': failure
+[CI/Lint and unit tests] ⭐ Run Complete job
+[CI/Lint and unit tests]   ✅  Success - Complete job
+[CI/Lint and unit tests] 🏁  Job failed
+Error: Job 'Lint and unit tests' failed
+act exit=1

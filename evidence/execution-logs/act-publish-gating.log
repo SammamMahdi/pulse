@@ -1,0 +1,51 @@
+# 2026-10-10T14:31:17Z act act version 0.2.89 - publish gating check (local, not GitHub-hosted)
+## Job graph
+time="2026-10-10T20:31:17+06:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+Stage  Job ID   Job name                              Workflow name  Workflow file  Events                             
+0      test     Lint and unit tests                   CI             ci.yml         workflow_dispatch,pull_request,push
+1      build    Build, smoke test and scan image      CI             ci.yml         pull_request,push,workflow_dispatch
+2      publish  Publish to GitHub Container Registry  CI             ci.yml         pull_request,push,workflow_dispatch
+
+## pull_request event, job=publish (expected: skipped by if-condition)
+time="2026-10-10T20:31:18+06:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+[CI/Lint and unit tests] ⭐ Run Set up job
+[CI/Lint and unit tests] 🚀  Start image=catthehacker/ubuntu:act-24.04
+[CI/Lint and unit tests]   ✅  Success - Set up job
+[CI/Lint and unit tests] ⭐ Run Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+[CI/Lint and unit tests]   ✅  Success - Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 [47.033657ms]
+[CI/Lint and unit tests] ⭐ Run Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+[CI/Lint and unit tests]   ❓  ::group::Installed versions
+[CI/Lint and unit tests]   | Successfully set up CPython (3.12.15)
+[CI/Lint and unit tests]   ❓  ::endgroup::
+[CI/Lint and unit tests]   | [command]/opt/hostedtoolcache/Python/3.12.15/x64/bin/pip cache dir
+[CI/Lint and unit tests]   | /root/.cache/pip
+[CI/Lint and unit tests]   ⚙  ***
+[CI/Lint and unit tests]   | Cache Size: ~5 MB (5053060 B)
+[CI/Lint and unit tests]   | [command]/usr/bin/tar -xf /tmp/7987822a-3101-4737-aad5-e3b0f476efab/cache.tzst -P -C /root/selise-work/act-container-cicd-lab --use-compress-program unzstd
+[CI/Lint and unit tests]   | Cache restored successfully
+[CI/Lint and unit tests]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.12.15-pip-0dd53aea395ff8540048e68650692d5c31cfffd38cded451904adc519c57b9e8
+[CI/Lint and unit tests]   ❓ add-matcher /run/act/actions/actions-setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97/.github/python.json
+[CI/Lint and unit tests]   ✅  Success - Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 [1.123065366s]
+[CI/Lint and unit tests]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.15/x64
+
+## push event to main, job=publish, dry-run (expected: job is scheduled; no real push happens in dry-run)
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Set up job
+*DRYRUN* [CI/Lint and unit tests] 🚀  Start image=catthehacker/ubuntu:act-24.04
+*DRYRUN* [CI/Lint and unit tests]   🐳  docker pull image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 username= forcePull=true
+*DRYRUN* [CI/Lint and unit tests]   🐳  docker create image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+*DRYRUN* [CI/Lint and unit tests]   🐳  docker run image=catthehacker/ubuntu:act-24.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Set up job
+*DRYRUN* [CI/Lint and unit tests]   ☁  git clone 'https://github.com/actions/setup-python' # ref=5fda3b95a4ea91299a34e894583c3862153e4b97
+*DRYRUN* [CI/Lint and unit tests]   ☁  git clone 'https://github.com/hadolint/hadolint-action' # ref=06be81baf89a55ffd0e24b8f04a4185738dd3387
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Main actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 [6.908196ms]
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Main actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 [7.61822ms]
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Main Install pinned dependencies
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Main Install pinned dependencies [20.058174ms]
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Main Ruff lint
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Main Ruff lint [21.380888ms]
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Main Ruff format check
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Main Ruff format check [20.624839ms]
+*DRYRUN* [CI/Lint and unit tests] ⭐ Run Main Unit tests with coverage gate (90%)
+*DRYRUN* [CI/Lint and unit tests]   ✅  Success - Main Unit tests with coverage gate (90%) [21.522216ms]

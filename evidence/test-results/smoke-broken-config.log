@@ -1,0 +1,6 @@
+        max_prime_limit=_parse_int(env, "MAX_PRIME_LIMIT", 1_000_000, 1, 10_000_000),
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/srv/app/config.py", line 42, in _parse_int
+        raise ConfigError(f"{key} must be an integer, got {raw!r}") from None
+    app.config.ConfigError: MAX_PRIME_LIMIT must be an integer, got 'not-a-number'
+exit=1

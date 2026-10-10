@@ -1,0 +1,3 @@
+# all severities incl. unfixed (informational)
+total=172 HIGH=44 LOW=62 MEDIUM=63 UNKNOWN=3 fixable=8
+fixable by severity: LOW=1 MEDIUM=5 UNKNOWN=2
