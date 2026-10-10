@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Keeps SHA-pinned actions current; cooldown avoids adopting brand-new releases immediately.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly

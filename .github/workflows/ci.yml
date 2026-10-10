@@ -1,0 +1,180 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ["v*.*.*"]
+  workflow_dispatch:
+
+# Default for every job: read-only. Jobs that need more ask for it explicitly.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  IMAGE_LOCAL: pulse-api:ci
+
+jobs:
+  test:
+    name: Lint and unit tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Install pinned dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Ruff lint
+        run: ruff check --output-format=github .
+      - name: Ruff format check
+        run: ruff format --check .
+      - name: Unit tests with coverage gate (90%)
+        run: pytest --cov --cov-report=term-missing --junitxml=junit.xml
+      - name: Dependency vulnerability audit
+        run: pip-audit -r requirements.txt --progress-spinner off
+      - name: Shellcheck
+        run: |
+          # Preinstalled on GitHub-hosted runners; installed on demand elsewhere (e.g. act).
+          command -v shellcheck >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck; }
+          shellcheck scripts/*.sh
+      - name: Dockerfile lint
+        uses: hadolint/hadolint-action@06be81baf89a55ffd0e24b8f04a4185738dd3387 # v3.5.0
+        with:
+          dockerfile: Dockerfile
+
+  secret-scan:
+    name: Secret scan (TruffleHog)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # scan the commits in this push / pull request, not just the tip
+          persist-credentials: false
+      - name: Fail on verified or unverifiable credentials
+        uses: trufflesecurity/trufflehog@4dd8831c5f12599465d4d45c3c447b4018a34c85 # v3.97.9
+        with:
+          extra_args: --results=verified,unknown
+
+  build:
+    name: Build, smoke test and scan image
+    needs: [test, secret-scan]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      version: ${{ steps.version.outputs.value }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Compute version
+        id: version
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ $REF_TYPE == tag ]]; then v=${REF_NAME#v}; else v="0.0.0-${GITHUB_SHA::7}"; fi
+          echo "value=$v" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build image
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          load: true
+          push: false
+          tags: ${{ env.IMAGE_LOCAL }}
+          build-args: APP_VERSION=${{ steps.version.outputs.value }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Smoke test (container must start healthy and serve)
+        run: scripts/smoke-test.sh "$IMAGE_LOCAL"
+      - name: Broken startup must be detected
+        run: |
+          if SMOKE_ENV="MAX_PRIME_LIMIT=not-a-number" SMOKE_TIMEOUT=20 scripts/smoke-test.sh "$IMAGE_LOCAL"; then
+            echo "::error::smoke test did not detect a container that cannot start"
+            exit 1
+          fi
+          echo "Broken configuration was detected as expected."
+      - name: Vulnerability scan (fail on fixable HIGH/CRITICAL)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          version: v0.74.0
+          image-ref: ${{ env.IMAGE_LOCAL }}
+          scanners: vuln
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
+      - name: Export the tested image for the publish job
+        run: docker save "$IMAGE_LOCAL" | gzip > pulse-api.tar.gz
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pulse-api-image
+          path: pulse-api.tar.gz
+          retention-days: 1
+
+  publish:
+    name: Publish to GitHub Container Registry
+    needs: build
+    # Only trusted events publish: pushes to main or version tags (never pull requests, never forks).
+    if: github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: pulse-api-image
+      - name: Load the exact image that passed tests and scanning
+        run: gunzip -c pulse-api.tar.gz | docker load
+      - name: Compute registry tags
+        id: meta
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/pulse-api
+          tags: |
+            type=sha,prefix=sha-
+            type=semver,pattern={{version}}
+            type=raw,value=main,enable={{is_default_branch}}
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag and push
+        id: push
+        env:
+          TAGS: ${{ steps.meta.outputs.tags }}
+        run: |
+          for tag in $TAGS; do
+            docker tag "$IMAGE_LOCAL" "$tag"
+            docker push --quiet "$tag"
+          done
+          ref=$(docker inspect --format '{{index .RepoDigests 0}}' "$(echo "$TAGS" | head -1)")
+          echo "name=${ref%@*}" >> "$GITHUB_OUTPUT"
+          echo "digest=${ref#*@}" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Published image"
+            echo "Digest: \`${ref#*@}\`"
+            echo "Tags:"; for tag in $TAGS; do echo "- $tag"; done
+            echo "Promote with: **Actions → Deploy (promote image) → digest = \`${ref#*@}\`**"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-name: ${{ steps.push.outputs.name }}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
