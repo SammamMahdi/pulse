@@ -1,0 +1,30 @@
+# Local run:  docker compose up --build -d   then   curl http://127.0.0.1:8000/health
+services:
+  api:
+    build:
+      context: .
+      args:
+        APP_VERSION: ${APP_VERSION:-0.0.0-dev}
+    image: ${IMAGE:-pulse-api}:${TAG:-local}
+    # Bind to loopback only; nothing on the LAN can reach the container.
+    ports:
+      - "127.0.0.1:${HOST_PORT:-8000}:8000"
+    environment:
+      APP_ENV: ${APP_ENV:-local}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      MAX_PRIME_LIMIT: ${MAX_PRIME_LIMIT:-1000000}
+      FAULT_INJECTION_ENABLED: "false"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+    restart: unless-stopped
+    # Health check is defined in the Dockerfile; compose reports it via `docker compose ps`.
