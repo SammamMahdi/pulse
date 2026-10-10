@@ -1,0 +1,95 @@
+name: Deploy (promote image)
+
+# Continuous delivery by promotion: an image digest that already passed CI is
+# re-verified, then (after environment approval) the environment tag is moved to it.
+# Rollback = run this workflow again with the previous digest shown in the job summary.
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        type: choice
+        options: [staging, production]
+        required: true
+      digest:
+        description: Image digest to promote (sha256:...), from the CI run summary
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify the candidate image
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: read
+    outputs:
+      image: ${{ steps.ref.outputs.image }}
+    steps:
+      - name: Validate input
+        id: ref
+        env:
+          DIGEST: ${{ inputs.digest }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          # Inputs are passed via env (never interpolated into the script) to prevent injection.
+          [[ $DIGEST =~ ^sha256:[a-f0-9]{64}$ ]] || { echo "::error::digest must look like sha256:<64 hex>"; exit 1; }
+          echo "image=ghcr.io/${OWNER,,}/pulse-api" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pull by digest and smoke test
+        env:
+          IMAGE: ${{ steps.ref.outputs.image }}
+          DIGEST: ${{ inputs.digest }}
+        run: |
+          docker pull --quiet "$IMAGE@$DIGEST"
+          scripts/smoke-test.sh "$IMAGE@$DIGEST"
+
+  promote:
+    name: Promote to ${{ inputs.environment }}
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    # Required reviewers / branch restrictions are configured on the environment in repo settings.
+    environment: ${{ inputs.environment }}
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Move environment tag to the verified digest
+        env:
+          IMAGE: ${{ needs.verify.outputs.image }}
+          DIGEST: ${{ inputs.digest }}
+          ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          previous=$(docker buildx imagetools inspect "$IMAGE:$ENVIRONMENT" --format '{{json .Manifest.Digest}}' 2>/dev/null | tr -d '"' || true)
+          docker buildx imagetools create --tag "$IMAGE:$ENVIRONMENT" "$IMAGE@$DIGEST"
+          current=$(docker buildx imagetools inspect "$IMAGE:$ENVIRONMENT" --format '{{json .Manifest.Digest}}' | tr -d '"')
+          [[ $current == "$DIGEST" ]] || { echo "::error::tag points to $current, expected $DIGEST"; exit 1; }
+          {
+            echo "### Promoted \`$ENVIRONMENT\`"
+            echo "- New digest: \`$DIGEST\`"
+            echo "- Previous digest: \`${previous:-none}\`"
+            echo
+            echo "Rollback: re-run this workflow with environment=\`$ENVIRONMENT\` and digest=\`${previous:-<previous>}\`."
+          } >> "$GITHUB_STEP_SUMMARY"
