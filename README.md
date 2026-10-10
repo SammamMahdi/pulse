@@ -185,11 +185,12 @@ All of this was executed on 2026-10-10 on Windows 11 with WSL2 (Ubuntu 24.04) an
 | Pipeline policy (publish only on push, SHA pins, scoped permissions) | Executed successfully (policy tests; all 5 deliberate weakenings were caught) |
 | Secret scan | Executed successfully (TruffleHog 3.97.9: 0 findings) |
 | Compose deploy + rollback | Executed successfully (1.0.0 → 1.1.0 → 1.0.0, healthy) |
-| PR CI on GitHub-hosted runners, GHCR publish, environment approval | **Not yet executed:** the repository has not been pushed to GitHub. The workflows are statically validated with actionlint and the policy tests. |
+| CI on GitHub-hosted runners, including GHCR publish with provenance | Executed successfully on the first push: all 4 jobs green ([run 38067563077](https://github.com/SammamMahdi/pulse/actions/runs/38067563077)) |
+| Pull-request run (publish skipped) and environment approval | Not yet demonstrated: needs a PR and a `production` environment with reviewers |
 
 ## Limitations and future improvements
 
-- GitHub-hosted runs, GHCR publishing and environment approvals will be demonstrated once the repo is pushed. Until then the pipeline has been exercised locally with `act`, which is not identical to GitHub's runners.
+- The push pipeline, including GHCR publishing, has run on GitHub. A pull-request run and the approval-gated promotion still need a PR and a configured `production` environment.
 - The "deployment" moves an environment tag in the registry. The runtime that consumes it (the Helm chart in pulse-helm) is a separate project. A GitOps controller such as Argo CD would make that hand-off pull-based.
 - Fixable-only vulnerability gating leaves known-unfixed CVEs in the base OS layer. A distroless or Chainguard base would shrink that surface.
 - Future additions: SBOM publication (CycloneDX), image signing with cosign, and a SAST stage.

@@ -25,7 +25,8 @@
 | No publishing from pull requests; minimal token scopes; SHA pins | Executed successfully (policy tests + mutation check) | §6 |
 | Compose deployment and rollback | Executed successfully | §7 |
 | Trivy step *inside act* | Blocked by environment: act provides no `github.token` for `setup-trivy`. The same Trivy version and flags were run directly (§3). | §4 |
-| GitHub-hosted runs, GHCR push, provenance attestation, environment approval | Blocked by environment (repo not pushed). Statically validated (actionlint, policy tests). | §6 |
+| GitHub-hosted CI on push to `main`: test, secret scan, build/smoke/Trivy, GHCR publish with provenance attestation | Executed successfully on GitHub-hosted runners, all 4 jobs green ([run 38067563077](https://github.com/SammamMahdi/pulse/actions/runs/38067563077), 2026-10-10) | GitHub Actions |
+| Pull-request run showing `publish` skipped; environment approval in `deploy.yml` | Not yet demonstrated: needs a PR and a `production` environment with required reviewers (repo settings) | §6 |
 
 ## 1. Lint and unit tests
 
