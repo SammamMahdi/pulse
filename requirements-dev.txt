@@ -20,7 +20,7 @@ packaging==26.3
 pip-requirements-parser==32.0.1
 pip_api==0.0.35
 pip_audit==2.10.1
-platformdirs==4.12.4
+platformdirs==4.13.3
 pluggy==1.6.0
 py-serializable==2.1.0
 Pygments==2.21.0
